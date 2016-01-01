@@ -1,0 +1,16 @@
+.container{
+  width: 500px;
+  margin: 0 auto;
+}
+
+img{
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+
+@media (max-width: 500px) {
+  .container{
+    width: 90%;
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "talks",
+  "version": "1.0.0",
+  "description": "Sayanee's talk slides, code and materials (http://talks.sayan.ee)",
+  "main": "index.html",
+  "scripts": {
+    "build": "stylus style.styl --compress",
+    "deploy": "git push origin gh-pages",
+    "start": "parallelshell 'http-server -p 8888' 'stylus style.styl --compress --watch'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sayanee/talks.git"
+  },
+  "keywords": [
+    "talks",
+    "slides",
+    "code",
+    "speaking",
+    "conference",
+    "meetups"
+  ],
+  "author": "Sayanee Basu <sayanee@gmail.com> (http://sayan.ee)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sayanee/talks/issues"
+  },
+  "homepage": "https://github.com/sayanee/talks#readme",
+  "devDependencies": {
+    "http-server": "^0.8.5",
+    "parallelshell": "^2.0.0"
+  }
+}

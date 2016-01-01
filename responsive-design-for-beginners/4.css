@@ -1,0 +1,37 @@
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+
+header, footer, article, aside{
+  height: 100px;
+}
+
+header, footer{
+  background-color: blue;
+  width: 100%;
+  clear: both;
+  margin: 0 0 10px 0;
+}
+
+article, aside{
+  background-color: red;
+  float: left;
+}
+
+article{
+  width: 72.5%;
+  margin: 0 2.5% 10px 0;
+}
+
+aside{
+  width: 25%;
+  margin: 0 0 10px 0;
+}
+
+@media (max-width: 760px) {
+  article, aside{
+    float: none;
+    width: 100%;
+  }
+}

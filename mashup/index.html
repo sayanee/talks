@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Let's mashup the web and the real world</title>
+
+	<meta name="description" content="Let's mashup the web and the real world">
+	<meta name="author" content="Sayanee">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link rel="stylesheet" href="lib/css/reveal.css">
+	<link rel="stylesheet" href="lib/css/prism.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'lib/css/print/pdf.css' : 'lib/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild( link );
+	</script>
+</head>
+
+<body>
+
+	<div class="reveal">
+		<div class="slides" style="text-align: left;">
+
+			<!-- Introduction -->
+			<section data-background="#373737" class="center right">
+				<h1 class="hello">
+					cześć!<br>
+					<small>jestem <a href="http://sayan.ee">sayan.ee</a></small>
+				</h1>
+				<img src="img/kid.jpg" class="profile-pic" alt="Kid Sayanee">
+			</section>
+
+			<section data-background="#373737" class="center">
+				<h1 class="title">let's mashup <br>the <span class="text-important">web</span> <br>and the <span class="text-info">real world</span></h1>
+			</section>
+
+			<section data-background="img/boat1.jpg">
+				<p class="caption">building a boat in a college semester</p>
+			</section>
+
+			<section data-background-video="video/boat1.mp4" data-background-color="#000000">
+				<p class="video-caption">with <a href="http://www.microchip.com/wwwproducts/Devices.aspx?product=PIC16F877A">PIC16 µ-controller</a> at 433MHz, 8kb flash, 3kb ram</p>
+			</section>
+
+			<section class="center">
+				<blockquote>Creators need an <span class="text-important">immediate connection</span> to what they create. That's my principle. <br><br>~ Bret Victor, Inventing on Principle</blockquote>
+			</section>
+
+			<section data-background="img/boat2.jpg">
+				<p class="caption">building a boat in a day-long workshop</p>
+			</section>
+
+			<section data-background-video="video/boat2.mp4" data-background-color="#000000">
+				<p class="video-caption">with <a href="http://www.st.com/web/catalog/mmc/FM141/SC1169/SS1031/LN1565/PF189782">STM32</a> at 2.4GHz WiFi, 128kb flash, 20kb ram at <a href="https://www.facebook.com/media/set/?set=a.615900415180712.1073741830.224477610989663&type=3">jsconf.asia</a></p>
+			</section>
+
+			<section data-background="#373737" class="center">
+				<h1 class="title margin-lg">Inventor's delight = <br>our <span class="text-important">learning</span> <span>+</span> <br>fast <span class="text-info"> feedback</span></h1>
+			</section>
+
+			<section class="left">
+				<table>
+					<thead>
+						<tr>
+							<th>Computing layers</th>
+							<th>Examples</th>
+							<th>What changed?</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>App</td>
+							<td>your ideas</td>
+							<td><span class="fragment" data-fragment-index="6">fast to prototype!</span></td>
+						</tr>
+						<tr>
+							<td>Framework</td>
+							<td>browser api, javascript libraries</td>
+							<td><span class="fragment" data-fragment-index="5">now available</span></td>
+						</tr>
+						<tr>
+							<td>Programming</td>
+							<td>v8 on ARM, Lua JIT, Arduino</td>
+							<td><span class="fragment" data-fragment-index="4">language support</span></td>
+						</tr>
+						<tr>
+							<td>Operating System</td>
+							<td>Raspbian, Android</td>
+							<td><span class="fragment" data-fragment-index="3">embedded linux</span></td>
+						</tr>
+						<tr>
+							<td>Integrated Circuits</td>
+							<td>hardware platforms</td>
+							<td><span class="fragment" data-fragment-index="2">more functionality</span></td>
+						</tr>
+						<tr>
+							<td>Physics</td>
+							<td>physical sensors</td>
+							<td><span class="fragment" data-fragment-index="1">cheaper</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section data-background="img/web-internet.jpg">
+				<p class="caption">web ≠ internet</p>
+			</section>
+
+			<section class="left">
+				<table>
+					<thead>
+						<tr>
+							<th>Communication Layers</th>
+							<th>Examples</th>
+							<th>What's changing?</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Web</td>
+							<td>HTTP</td>
+							<td><span class="fragment" data-fragment-index="3">websockets, webrtc</span></td>
+						</tr>
+						<tr>
+							<td>Transport</td>
+							<td>TCP, UDP</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Internet</td>
+							<td>Internet Protocol, MQTT</td>
+							<td><span class="fragment" data-fragment-index="2">IPv6, 6LowPan</span></td>
+						</tr>
+						<tr>
+							<td>Physical</td>
+							<td>Ethernet, WiFi, 3G/4G, BLE</td>
+							<td><span class="fragment" data-fragment-index="1">wireless, low power</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section data-background="#373737">
+				<h1 class="text-warning">mashup with sensors</h1>
+				<ul class="demo">
+					<li><span class="count bgr-info">1</span> in <span class="text-info">phones</span></li>
+					<li><span class="count bgr-important">2</span> over <span class="text-important">http</span></li>
+					<li><span class="count bgr-success">3</span> over <span class="text-success">ble</span></li>
+				</ul>
+			</section>
+
+			<!-- demo 1: sensors in phones -->
+			<section data-background="#373737" class="center">
+				<h1 class="text-warning">mashup with sensors</h1>
+				<ul class="demo">
+					<li><span class="count bgr-info">1</span> in <span class="text-info">phones</span></li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>demo <code class="url">https://poll.sayan.ee</code></h2>
+				<iframe src="https://poll.sayan.ee/result" frameborder="0"></iframe>
+			</section>
+
+			<section>
+				<h2>mashup</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Client</th>
+							<th>Server</th>
+							<th>Hardware</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">device orientation</a></td>
+							<td></td>
+							<td>mobile</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td><a href="http://socket.io/docs/client-api/">client web socket</a></td>
+							<td><a href="http://socket.io/docs/server-api/">server web socket</a></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h2>code <span class="tagline"><a href="https://github.com/sayanee/pollmobile">code</a></span></h2>
+
+				<p class="text-info">DeviceOrientationEvent</p>
+				<pre><code class="language-javascript">
+// in index.html's script tag
+window.addEventListener('deviceorientation', function(event) {
+  var tiltLR = event.gamma; // tilt device left to right
+  var tiltFB = event.beta; // tilt device front to back
+  var alpha = event.alpha; // degree twisted around the center
+});</code></pre>
+
+				<p class="text-info">Web Sockets with Socket.io</p>
+				<pre><code class="language-javascript">
+// in index.html's script tag
+var socket = io();
+if (tiltFB < 15.0) {
+  socket.emit('no', username); // emit socket when it detects yes
+} else if (tiltFB > 75.0) {
+  socket.emit('yes', username); // emit socket when it detects no
+}</code></pre>
+			</section>
+
+			<section>
+				<h2>challenges</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>characteristics</th>
+							<th>tip</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>jittery</td>
+							<td>use a smoothening algorithm</td>
+						</tr>
+						<tr>
+							<td>raw</td>
+							<td>
+								sanitize <br>
+								change zero point <br>
+								add a multiplier</td>
+						</tr>
+						<tr>
+							<td>high precision</td>
+							<td>round down / up</td>
+						</tr>
+						<tr>
+							<td>uncalibrated</td>
+							<td>calibrate it according to environment</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="fragment" data-fragment-index="1">
+					<a href="https://github.com/richtr/Full-Tilt"><img src="img/full-tilt.png" class="img-medium" alt="Github.com full-tilt repository"></a>
+					<a href="http://matthew.wagerfield.com/parallax/"><img src="img/parallax.png" class="img-medium" alt="Github.com parallax repository"></a>
+				</div>
+			</section>
+
+			<section>
+				<h2>keep in view</h2>
+				<div class="scroll">
+					<a href="http://www.w3.org/2009/dap/"><img src="img/dap.jpg" alt="Device API Working Group"></a>
+				</div>
+			</section>
+
+			<section>
+				<h2>explore today</h2>
+				<p><a href="http://sensorendipity.github.io/">Sensorendipity</a> with Android and <a href="http://janos.io/">JanOS</a> with Firefox OS</p>
+				<img src="img/demo1.jpg" alt="Sensorenditpity in Android and JanOS in FirefoxOS to access sensor values in phones with ">
+			</section>
+
+			<!-- demo 2: sensors over http -->
+			<section data-background="#373737" id="demo2" class="center">
+				<h1 class="text-warning">mashup with sensors</h1>
+				<ul class="demo">
+					<li><span class="count bgr-important">2</span> over <span class="text-important">http</span></li>
+				</ul>
+			</section>
+
+			<section id="demo2a">
+				<h2>hardware platforms</h2>
+				<table class="row-35-left small">
+					<thead><tr><th>Aruino Yun <a href="http://www.arduino.cc/en/Main/ArduinoBoardYun?from=Main.ArduinoYUN">specs</a></th></tr></thead>
+					<tbody>
+						<tr><td><strong>μ controller: </strong>ATmega32u4</td></tr>
+						<tr><td><strong>connect: </strong>WiFi <a href="https://wikidevi.com/wiki/Atheros_AR9331">Atheros AR9331</a></td></tr>
+						<tr><td><strong>I/O pins: </strong>20</td></tr>
+						<tr><td><strong>analog pins: </strong>12</td></tr>
+						<tr><td><strong>firmware: </strong>Arduino</td></tr>
+						<tr><td><img src="img/yun.jpg" alt=""></td></tr>
+					</tbody>
+				</table>
+				<video autoplay id="camera-demo2a" class="row-65-right"></video>
+			</section>
+
+			<section id="demo2b">
+				<h2>hardware platforms</h2>
+				<table class="row-35-left small">
+					<thead><tr><th>Spark Core <a href="http://docs.spark.io/hardware/">specs</a></th></tr></thead>
+					<tbody>
+						<tr><td><strong>μ controller: </strong>STM32</td></tr>
+						<tr><td><strong>connect: </strong>WiFi <a href="http://www.ti.com/product/cc3000">TI CC3000</a></td></tr>
+						<tr><td><strong>I/O pins: </strong>18</td></tr>
+						<tr><td><strong>digital pins: </strong>8</td></tr>
+						<tr><td><strong>analog pins: </strong>8</td></tr>
+						<tr><td><strong>PWM pins: </strong>8</td></tr>
+						<tr><td><strong>firmware: </strong>Arduino / C</td></tr>
+						<tr><td><img src="img/spark.jpg" alt="Spark core hardware"></td></tr>
+					</tbody>
+				</table>
+				<video autoplay id="camera-demo2b" class="row-65-right"></video>
+
+				<aside class="notes">
+	        <ul>
+	        	<li>Spark cloud</li>
+	        	<li>how to flash the firmware</li>
+	        </ul>
+		    </aside>
+			</section>
+
+			<section>
+				<h2>wiring the rgb led</h2>
+				<img src="img/led.png" class="img-center" alt="Wiring breadboard with an RGB LED and Spark core">
+				<pre><code class="language-javascript">
+// in JavaScript
+httpPost('A7', 255); // Red: pin A7, value 255
+httpPost('A5', 0); // Green: pin A5, value 0
+httpPost('A6', 0); // Blue: pin A6, value 0
+</code></pre>
+			</section>
+
+			<section>
+				<h2>wiring the proximity sensor</h2>
+				<img src="img/proximity.png" class="img-center" alt="Wiring proximity sensor with Spark Core">
+				<pre><code class="language-clike">// in Firmware code with Spark API
+int trigPin = D4;
+int echoPin = D5;
+</code></pre>
+			</section>
+
+			<section>
+				<h2>demo</h2>
+				<iframe src="https://localhost:3001" frameborder="0"></iframe>
+			</section>
+
+			<section>
+				<h2>mashup</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Client</th>
+							<th>Firmware</th>
+							<th>Hardware</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>getUserMedia, <br><a href="http://lokeshdhakar.com/projects/color-thief/">color thief</a>, <br><a href="https://github.com/One-com/one-color">one color</a></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td>send a <code>POST</code> request to 3 pins</td>
+							<td>spark's default <a href="http://docs.spark.io/tinker/#tinkering-with-tinker-using-tinker-with-your-code">tinker</a> function: <code><a href="http://docs.spark.io/firmware/#i-o-analogwrite">analogwrite</a></code></td>
+							<td>RGB LED</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<td>sensor value = progress bar</td>
+							<td>emit <a href="https://developer.mozilla.org/en-US/docs/Server-sent_events/Using_server-sent_events">SSE</a> every second</td>
+							<td>Proximity sensor <br><a href="http://www.micropik.com/PDF/HCSR04.pdf">HC-SR04</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h2>code: browser -> led<span class="tagline"><a href="https://github.com/sayanee/match-color">code</a></span></h2>
+				<p class="text-info">send http post request to rgb led</p>
+				<pre><code class="language-javascript">
+// in index.html's script tag
+// call http post to 3 pins for RGB
+var http = new XMLHttpRequest();
+var url = 'https://api.spark.io/v1/devices/{DEVICE_ID}/analogwrite';
+var params = 'access_token={ACCESS_TOKEN}&amp;params={PIN},{VALUE}';
+
+http.open('post', url, true); // and http.setRequestHeader
+http.onreadystatechange = function() {
+  if(http.readyState == 4 && http.status == 200) {
+    // handle success and error
+  }
+}
+http.send(params);</code></pre>
+			</section>
+
+			<section>
+				<h2>code: sensor -> browser<span class="tagline"><a href="https://github.com/sayanee/match-color">code</a></span></h2>
+				<p class="text-info">Firmware code</p>
+				<pre><code class="language-javascript">void loop() {
+  if(millis() - old_time >= 1000){
+    cm = rangefinder.getDistanceCM();
+    Spark.publish("distance", distance); // every second publish distance
+    old_time = millis();
+  }
+}</code></pre>
+
+				<p class="text-info">JavaScript frontend code</p>
+				<pre><code class="language-javascript">var url = 'api.spark.io/v1/devices/{ID}/events/?access_token={TOKEN}';
+var eventSource = new EventSource('https://' + url);
+eventSource.addEventListener('distance', function(e) {
+  // e.data = distance
+}, false);</code></pre>
+			</section>
+
+			<section>
+				<h2>explore today - control in JS</h2>
+				<img src="img/demo2-explore.jpg">
+			</section>
+
+			<!-- demo 3: over ble -->
+			<section data-background="#373737" id="demo3" class="center">
+				<h1 class="text-warning">mashup with sensors</h1>
+				<ul class="demo">
+					<li><span class="count bgr-success">3</span> over <span class="text-success">ble</span></li>
+				</ul>
+			</section>
+
+			<section >
+				<h2>wireless protocols</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>communication</th>
+							<th>range</th>
+							<th>power consumption</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td>wifi 802.11x</td><td>~ 100m</td><td>medium</td></tr>
+						<tr><td>ble 802.15.1</td><td>~ 50m</td><td>low</td></tr>
+						<tr><td>zigbee 802.15.4</td><td>< 10m</td><td>low</td></tr>
+						<tr><td>gsm</td><td>> 1 km</td><td>high</td></tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="demo3b">
+				<h2>hardware</h2>
+				<table class="row-35-left small">
+					<thead><tr><th>BLE breakout <a href="http://www.adafruit.com/products/1697">specs</a></th></tr></thead>
+					<tbody>
+						<tr><td><strong>connectivity: </strong> BLE with <a href="https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF8001">NRF 8001</a></td></tr>
+						<tr><td><img src="img/nrf.jpg"></td></tr>
+					</tbody>
+				</table>
+				<video autoplay id="camera-demo3b" class="row-65-right"></video>
+			</section>
+
+			<section id="demo3a">
+				<h2>hardware</h2>
+				<table class="row-35-left small">
+					<thead><tr><th>TI Sensor Tag <a href="http://www.ti.com/tool/cc2541dk-sensor">specs</a></th></tr></thead>
+					<tbody>
+						<tr><td><strong>connect: </strong>BLE <a href="http://www.ti.com/product/cc2541">CC2541</a></td></tr>
+						<tr><td><strong>sensors: </strong>IR temperature, humidity, pressure, accelerometer, gyroscope</td></tr>
+						<tr><td><strong>battery: </strong> coin cell CR2032</td></tr>
+						<tr><td><img src="img/sensortag.jpg" alt="Texas Instruments Sensor Tag for BLE and sensor dev board" height=300></td></tr>
+					</tbody>
+				</table>
+
+				<video autoplay id="camera-demo3a" class="row-65-right"></video>
+				<aside class="notes">
+					<ul>
+						<li>it's a dev board</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section id="demo3c">
+				<h2>demo</h2>
+				<iframe src="https://localhost:4200/" frameborder="0" width="100%" class="terminal"></iframe>
+				<div class="row-60-left">
+					<button id="mute" class="button">Mute</button>
+					<button id="play" class="button">Play</button>
+					<button id="play-dj" class="button btn-rainbow">Be a DJ!</button>
+				</div>
+				<video autoplay id="camera-demo3c" class="row-40-right"></video>
+				<aside class="notes">
+					<ul>
+						<li>angle vs angular velocity</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h2>mashup</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Client</th>
+							<th>Server</th>
+							<th>Hardware</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API">web audio</a></td>
+							<td><a href="https://github.com/sandeepmistry/node-sensortag">node-sensortag</a></td>
+							<td><a href="http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/?INTC=SensorTag&HQS=sensortag">TI sensor tag</a>, <br>laptop with ble hardware</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<td>web sockets</td>
+							<td>web sockets</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<aside class="notes">
+					<ul>
+						<li>use ble usb adapter if your laptop does not yet support ble</li>
+					</ul>
+				</aside>
+			</section>
+
+			<section>
+				<h2>code: sensortag <-> web audio<span class="tagline"><a href="https://github.com/sayanee/dj">code</a></span></h2>
+				<p class="text-info">node sensortag</p>
+				<pre><code class="language-javascript">var SensorTag = require('sensortag');
+SensorTag.discover(function(sensorTag) {
+	async.series([
+	    function(callback) {
+        sensorTag.enableIrTemperature(callback);
+      },
+      function(callback) {
+        setTimeout(callback, 2000);
+      },
+      function(callback) {
+        sensorTag.readIrTemperature(function(error, obTemp, ambTemp) {
+          // emit socket to frontend with ambientTemperature
+          callback();
+        });
+      },
+  	  ...</code></pre>
+  	  </section>
+
+			<section>
+				<h2>code: sensortag <-> web audio<span class="tagline"><a href="https://github.com/sayanee/dj">code</a></span></h2>
+				<p class="text-info">Client code for Web Audio API</p>
+				<pre><code class="language-javascript">var context = new AudioContext();
+var oscillator = context.createOscillator();
+oscillator.connect(context.destination);
+
+socket.on('gyroscopeChange', function (data) {
+	oscillator.frequency.value = somethingCool(data.x); // process it
+})</code></pre>
+			</section>
+
+			<section>
+				<h2>keep in view</h2>
+				<a href="https://www.w3.org/community/web-bluetooth/"><img src="img/web-ble.png"></a>
+			</section>
+
+			<section>
+				<h2>explore today - JS + wireless protocols</h2>
+				<a href="https://github.com/sandeepmistry?tab=repositories"><img class="row-2-left" src="img/ble.png"></a>
+				<a href="https://github.com/voodootikigod?tab=repositories"><img class="row-2-left" src="img/serial.png"></a>
+			</section>
+
+			<!-- conclusion -->
+			<section>
+				<h2>get started today!</h2>
+				<a href="https://dev.opera.com/articles/wifi-ble-javascript/"><img src="img/start.png"></a>
+			</section>
+
+			<section data-background="#373737" class="center">
+				<ul class="list">
+					<li>proximity</li>
+					<li>led</li>
+					<li>accelerometer</li>
+					<li>gyroscope</li>
+					<li>temperature</li>
+					<li>humidity</li>
+					<li>servo</li>
+					<li>ambience</li>
+				</ul>
+				<h1 class="text-center"><span class="text-white">MASHUP</span></h1>
+				<ul class="list">
+					<li>css3 animation</li>
+					<li>web rtc</li>
+					<li>web audio</li>
+					<li>web sockets</li>
+					<li>server sent events</li>
+					<li>browser api</li>
+					<li>web gl</li>
+				</ul>
+			</section>
+
+			<section data-background="#373737">
+				<h2 class="text-warning">mashup web + real world</h2>
+				<ul class="demo">
+					<li class="strikethrough"><span class="count bgr-info">1</span> <span class="text-info">sensors</span></li>
+					<li class="fragment" data-fragment-index="1"><span class="count bgr-important">2</span> <span class="text-important">wearables</span></li>
+					<li class="fragment" data-fragment-index="2"><span class="count bgr-success">3</span> <span class="text-success">robots</span></li>
+					<li class="fragment" data-fragment-index="3"><span class="count bgr-warning">4</span> <span class="text-warning">satellites?</span></li>
+				</ul>
+			</section>
+
+			<section data-background="img/city.jpg">
+				<h2>track our usage</h2>
+			</section>
+
+			<section data-background="img/forest.jpg">
+				<h2 class="text-white text-bottom">learn from nature</h2>
+			</section>
+
+			<section data-background="img/astro.jpg" class="center">
+				<h2 class="text-white right">discover the universe</h2>
+			</section>
+
+			<section data-background="#373737" class="center">
+				<h1 class="title margin-lg">Let's play with the <br><span class="text-important">real</span>&nbsp;&nbsp; <span class="text-info"> world</span> <span class="text-white">!</span></h1>
+			</section>
+
+			<section id="thanks" class="center">
+				<h1 class="text-center">Thanks!</h1>
+				<p class="text-center">slides at <a href="http://mashup.sayan.ee">mashup.sayan.ee</a> <br> slides code at <a href="https://github.com/sayanee/mashup">github.com/sayanee/mashup</a></p>
+			</section>
+
+			<section id="credits">
+				<h1>Credits</h1>
+				<ul>
+					<li><a href="https://www.facebook.com/media/set/?set=a.615900415180712.1073741830.224477610989663&type=3">JSConf Asia NodeBoats workshop</a></li>
+					<li>Bret Victor's "Inventing on Principle" <a href="https://github.com/ezyang/cusec2012-victor/blob/master/transcript.md">transcript</a> and <a href="https://www.youtube.com/watch?v=PUv66718DII">video</a></li>
+					<li><a href="https://www.coursera.org/course/comparch">David Wentzlaff</a>'s lecture notes for Abstractions in computing</li>
+					<li><a href="http://blog.teamtreehouse.com/exploring-javascript-device-apis">Exploring javascript device api</a></li>
+					<li><a href="https://github.com/hakimel/reveal.js">reveal.js</a> slide framework and <a href="http://prismjs.com/">Prism JS</a> syntax highlighting</li>
+
+					<li>Wireless protocol from <a href="http://www.mdpi.com/1424-8220/12/9/11734">Overview and evaluation of BLE</a></li>
+					<li>Electronics wiring diagrams with <a href="http://fritzing.org/home/">Fritzing</a></li>
+					<li>CC music <a href="http://dig.ccmixter.org/files/George_Ellinas/28107">Mine + Yours = Ours by George_Ellinas</a> for DJ song</li>
+					<li><a href="https://dev.opera.com/articles/wifi-ble-javascript/">Electronics for the JavaScript Developer using Wi-Fi and BLE</a></li>
+					<li><a href="https://unsplash.com/">Unsplash</a> images for <a href="https://unsplash.com/photos/6xqmpykNvbI/download">city</a> and <a href="https://unsplash.com/photos/JsqAqevX6lg/download">forest</a></li>
+					<li><a href="https://www.flickr.com/photos/esoastronomy/16652031840/">A Starry Combination</a> image by ESO</li>
+					<li><a href="https://twitter.com/kennethlimcp">Kenneth</a> for Spark core debugging</li>
+					<li><a href="https://twitter.com/kopisam">Sam</a> for advice on slides content, <a href="https://code.google.com/p/shellinabox/">Shellinabox</a> and city iot projects</li>
+					<li><a href="https://twitter.com/ntt">Chinmay</a> for web audio, <a href="https://github.com/notthetup/sensortag-shake">sensortag shake</a> and slides content advice</li>
+				</ul>
+			</section>
+
+		</div>
+
+	</div>
+
+	<script src="lib/js/plugin/socket.io-client/socket.io.js"></script>
+	<script src="lib/js/head.min.js"></script>
+	<script src="lib/js/reveal.js"></script>
+	<script src="lib/js/plugin/prism/prism.js"></script>
+	<script src="js/dj.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>

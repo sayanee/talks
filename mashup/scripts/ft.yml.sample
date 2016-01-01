@@ -1,0 +1,10 @@
+name: ft
+root: /Users/{USERNAME}/path/to/slides
+windows:
+  - slides:
+      layout: main-vertical
+      panes:
+        - ls
+        - npm run css
+        - npm start
+

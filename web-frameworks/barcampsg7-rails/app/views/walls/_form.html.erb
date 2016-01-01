@@ -1,0 +1,25 @@
+<%= form_for(@wall) do |f| %>
+  <% if @wall.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wall.errors.count, "error") %> prohibited this wall from being saved:</h2>
+
+      <ul>
+      <% @wall.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+  </div>
+  <div class="field">
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<!-- Open this file in any modern browser -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ES6 Modules</title>
+  <script src="https://traceur-compiler.googlecode.com/git/bin/traceur.js"
+  type="text/javascript"></script>
+  <script src="https://traceur-compiler.googlecode.com/git/src/bootstrap.js"
+  type="text/javascript"></script>
+  <script>
+  traceur.options.experimental = true;
+  </script>
+</head>
+<body>
+  <script type="text/traceur">
+
+  // ES6
+  module circle {
+    export var pi = 3.141;
+    export function area(radius) {
+      return "Area of Circle with radius "  + radius + " is " + (pi * radius * radius);
+    }
+    export function circumference(radius) {
+      return "Circumference of Circle with radius "  + radius + " is " + (2 * pi * radius);
+    }
+  }
+
+  console.log( circle.area(3) );
+  console.log(  circle.circumference(2) );
+
+</script>
+</body>
+</html>

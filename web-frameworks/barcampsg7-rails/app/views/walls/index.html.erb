@@ -1,0 +1,25 @@
+<h1>Listing walls</h1>
+
+<table>
+  <tr>
+    <th>Comment</th>
+    <th>Commenter</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @walls.each do |wall| %>
+  <tr>
+    <td><%= wall.comment %></td>
+    <td><%= wall.commenter %></td>
+    <td><%= link_to 'Show', wall %></td>
+    <td><%= link_to 'Edit', edit_wall_path(wall) %></td>
+    <td><%= link_to 'Destroy', wall, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Wall', new_wall_path %>

@@ -1,0 +1,27 @@
+{
+  "name": "dj",
+  "version": "1.0.0",
+  "description": "ble to web audio",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "contributors": [
+    {
+      "name": "Chinmay",
+      "twitter": "@ntt"
+    }, {
+      "name": "Sayanee",
+      "twitter": "@sayanee_"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "colors": "^1.1.0",
+    "express": "^4.12.3",
+    "sensortag": "^1.0.0",
+    "sensortag-shake": "^1.0.0",
+    "socket.io": "^1.3.5"
+  }
+}

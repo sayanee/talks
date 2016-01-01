@@ -1,0 +1,15 @@
+{
+  "name": "match-color",
+  "version": "1.0.0",
+  "description": "display the dominant color from camera onto RGB LED",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "node dev-server"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "4.12.3"
+  }
+}

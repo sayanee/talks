@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=0">
+  <title>Poll result admin</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+  .btn {
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="col-lg-8 col-lg-offset-2 gap">
+    <h1>Set poll</h1>
+
+    <div id="initial">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="badge">1</span>
+          <span id="created-q1"></span>
+        </li>
+        <li class="list-group-item">
+          <span class="badge">2</span>
+          <span id="created-q2"></span>
+        </li>
+        <li class="list-group-item">
+          <span class="badge">3</span>
+          <span id="created-q3"></span>
+        </li>
+      </ul>
+      <button type="submit" id="set" class="btn btn-primary">Set 3 new questions</button>
+    </div>
+
+    <div id="questions" class="questions">
+      <div class="form-group">
+        <input class="form-control" id="q1" type="text" placeholder="question 1">
+      </div>
+      <div class="form-group">
+        <input class="form-control" id="q2" type="text" placeholder="question 2">
+      </div>
+      <div class="form-group">
+        <input class="form-control" id="q3" type="text" placeholder="question 3">
+      </div>
+    </div>
+    <button type="submit" id="submit" class="btn btn-primary">add questions</button>
+  </div>
+</div>
+
+<script src="js/vendor/socket.io-client/socket.io.js"></script>
+<script>
+var socket = io();
+socket.emit('admin');
+var questionsList = document.getElementById('questions');
+var submitEl = document.getElementById('submit');
+var setEl = document.getElementById('set');
+var initialEl = document.getElementById('initial');
+
+questionsList.style.display = 'none';
+submitEl.style.display = 'none';
+
+socket.on('questions', function(data) {
+  console.log('Received questions from server!')
+  document.getElementById('created-q1').innerHTML = data.q1;
+  document.getElementById('created-q2').innerHTML = data.q2;
+  document.getElementById('created-q3').innerHTML = data.q3;
+})
+
+setEl.addEventListener('click', function() {
+  initialEl.style.display = 'none';
+  questionsList.style.display = 'block';
+  submitEl.style.display = 'block';
+})
+
+submitEl.addEventListener('click', function() {
+  var q1 = document.getElementById('q1');
+  var q2 = document.getElementById('q2');
+  var q3 = document.getElementById('q3');
+
+  initialEl.style.display = 'block';
+  questionsList.style.display = 'none';
+  submitEl.style.display = 'none';
+
+  document.getElementById('created-q1').innerHTML = q1.value;
+  document.getElementById('created-q2').innerHTML = q2.value;
+  document.getElementById('created-q3').innerHTML = q3.value;
+
+  socket.emit('questions', {
+    q1: q1.value,
+    q2: q2.value,
+    q3: q3.value
+  });
+
+  q1.value = '';
+  q2.value = '';
+  q3.value = '';
+})
+</script>
+</body>
+</html>

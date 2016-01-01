@@ -1,0 +1,16 @@
+.DS_Store
+.svn
+log/*.log
+tmp/**
+node_modules/
+.sass-cache
+
+scripts/ft
+scripts/ft.yml
+music
+
+# generate self signed cert for allowing localhost camera access
+# instructions for self-signed certs:
+# https://devcenter.heroku.com/articles/ssl-certificate-self
+sslcert
+certificate*

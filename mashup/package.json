@@ -1,0 +1,33 @@
+{
+  "name": "mashup",
+  "version": "1.0.0",
+  "description": "Let's mashup the web and real world",
+  "homepage": "http://mashup.sayan.ee",
+  "scripts": {
+    "start": "parallelshell 'shellinaboxd-ssl --service=:sayanee:staff:/Users/sayanee/Workspace/dj:/bin/zsh --localhost-only --port 4200 --css=lib/css/terminal.css --static-file=ShellInABox.js:lib/js/plugin/shellinabox/ShellInABox.js -c sslcert' 'node ~/Workspace/match-color/dev-server' 'node dev-server'",
+    "css": "sass --watch css/app.scss:css/app.css --style compressed",
+    "slides": "node server"
+  },
+  "author": {
+    "name": "Sayanee Basu",
+    "email": "sayanee@gmail.com",
+    "web": "http://sayan.ee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sayanee/mashup.git"
+  },
+  "engines": {
+    "iojs": "1.8.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "colors": "^1.1.0",
+    "express": "^4.12.3",
+    "parallelshell": "^1.1.1"
+  }
+}

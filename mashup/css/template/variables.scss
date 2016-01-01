@@ -1,0 +1,31 @@
+// color palette
+$white: #FFFFFF;
+$black: #373737;
+$grey: #A0BAC1;
+
+$red: #f55347;
+$blue: #2dbcd3;
+$yellow: #ffd064;
+$green: #5ec3b0;
+
+// semantic colors
+$backgroundColor: $white;
+$linkColor: $blue;
+$linkColorHover: lighten($linkColor, 20%);
+$mainColor: $black;
+
+// fonts
+@import url(https://fonts.googleapis.com/css?family=Pacifico|Oswald:400,300,700);
+$mainFont: 'Open Sans', sans-serif;
+$headingFont: 'Pacifico', serif;
+
+// others
+$headingTextShadow: none;
+$headingLetterSpacing: -0.03em;
+$headingTextTransform: none;
+$selectionBackgroundColor: $yellow;
+$mainFontSize: 30px;
+
+.reval .title {
+  font-family: $headingFont;
+}

@@ -1,0 +1,6 @@
+.box {
+  background: linear-gradient(white, white), radial-gradient(at 50% 0, grey, transparent 70%);
+  background-size: 100% 15px, 100% 15px;
+  background-repeat: no-repeat;
+  background-attachment: local, scroll;
+}

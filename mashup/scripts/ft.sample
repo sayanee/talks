@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# INSTALL
+# cp scripts/ft.sample scripts/ft
+# ln -s scripts/ft path/to/all/scripts
+
+# USAGE in the command line:
+# ft
+
+app="/Users/{USERNAME}/path/to/app" # amend this app path
+readme="/readme.md"
+
+open $app
+open $app$readme
+
+# slides
+open http://localhost:3000
+tmuxinator ft

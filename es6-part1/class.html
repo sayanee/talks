@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ES6 Class</title>
+  <script src="https://traceur-compiler.googlecode.com/git/bin/traceur.js"
+  type="text/javascript"></script>
+  <script src="https://traceur-compiler.googlecode.com/git/src/bootstrap.js"
+  type="text/javascript"></script>
+  <script>
+    traceur.options.experimental = true;
+  </script>
+</head>
+<body>
+  <script type="text/traceur">
+
+  // ES5
+  // var Language = function(config) {
+  //   this.name = config.name;
+  //   this.founder = config.founder;
+  //   this.year = config.year;
+  // };
+
+  // Language.prototype.summary = function() {
+  //   return this.name + " was created by " + this.founder + " in " + this.year;
+  // };
+
+  // ES6
+  class Language {
+    constructor(name, founder) {
+      this.name = name;
+      this.founder = founder;
+      this.year = year;
+    }
+    summary() {
+      return this.name + " was created by " + this.founder + " in " + this.year;
+    }
+  }
+
+  class MetaLanguage extends Language {
+    constructor(x, y, z, version) {
+      super(x, y, z);
+      this.version = version;
+    }
+  }
+
+  // Try out in the console
+  // var js = new Language;
+  // js.name = "JavaScript";
+  // js.founder = "Brendan Eich";
+  // js.year = 1995;
+
+  // var ruby = new Language("Ruby", "Matz", 1993);
+
+  // var html = new MetaLanguage;
+  // html.name = "HTML";
+  // html.founder = "Tim Berners-Lee";
+  // html.year = 1991;
+  // html.version = 5;
+
+  // console.log(js);
+  // console.log(html);
+
+  </script>
+</body>
+</html>

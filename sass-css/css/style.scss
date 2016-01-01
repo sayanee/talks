@@ -1,0 +1,123 @@
+/*** created before scss **/
+@import "common";
+
+$length:100%;
+$darkcolor:#69281B;
+$lightcolor:#F69A91;
+$radius:3px;
+$horl:0px;
+$verl:0px;
+$blur:3px;
+$spread:2px;
+$shade: #cccccc;
+
+.container {
+  margin: 0 auto; 
+  width:$length*0.8;
+}
+
+header{
+  width:$length;
+  clear:both;
+  margin: 10px auto; 
+  background-color: $lightcolor;
+  
+  @include rounded($radius); 
+  @include shading($horl, $verl, $blur, $spread, $shade);
+  
+  h1{
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    text-align: center;
+    line-height:100px;
+    color:$darkcolor;
+  }
+}
+
+.main {
+  width:$length*0.6;
+  float:left;
+  margin:20px 0px;
+  padding:20px;
+  
+  @include rounded($radius); 
+  @include shading($horl, $verl, $blur, $spread, $shade);
+  
+  h2{
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    text-align: center;
+    line-height:20px;
+    color:$darkcolor;
+  }
+  
+  ul.pics{
+    list-style: none;
+    
+    li{
+      float:left;
+      margin:30px;
+
+      border-radius: 3px;
+      border: 7px solid white;
+
+      @include rounded($radius); 
+      @include shading($horl, $verl, $blur, $spread, $shade);
+      &:nth-child(odd) { @include scalerotate(0.7, -5deg); }
+      &:nth-child(even) { @include scalerotate(0.9, 10deg); }
+      &:hover { @include scalerotate(1, 0deg); }
+    }
+  }
+}
+
+.sidebar{
+  width:$length*0.3;
+  float:right;
+  margin:20px 0px;
+  padding:20px;
+  
+  @include rounded($radius); 
+  @include shading($horl, $verl, $blur, $spread, $shade);
+  
+  h2{
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    text-align: center;
+    line-height:20px;
+    color:$darkcolor;
+  }
+  
+  ol.resource li{
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    
+    a{
+      color:#1F5C99;
+      text-decoration: none;
+      
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+footer{
+  width:$length;
+  clear:both;
+  margin: 10px auto; 
+    
+  background-color: $lightcolor;
+  
+  @include rounded($radius); 
+  @include shading($horl, $verl, $blur, $spread, $shade);
+  
+  p{
+    font-family: Arial, "MS Trebuchet", sans-serif;
+    font-size:12px;
+    color:$darkcolor;
+    text-align: center;
+    line-height:30px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .container{width:95%;}
+  .main, .sidebar{width:90%; float:left;}
+}

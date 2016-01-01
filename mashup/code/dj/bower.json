@@ -1,0 +1,28 @@
+{
+  "name": "poll",
+  "version": "1.0.0",
+  "authors": [
+    "Sayanee <sayanee@gmail.com>"
+  ],
+  "description": "poll",
+  "main": "public/index.html",
+  "keywords": [
+    "poll",
+    "javascript",
+    "web",
+    "socket"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "~1.3.5"
+  }
+}

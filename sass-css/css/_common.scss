@@ -1,0 +1,16 @@
+@mixin rounded($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin shading($horl, $verl, $blur, $spread, $shade){
+	-webkit-box-shadow: $horl $verl $blur $spread $shade;
+	-moz-box-shadow: $horl $verl $blur $spread $shade;
+	box-shadow: $horl $verl $blur $spread $shade;
+}
+
+@mixin scalerotate($size, $degrees){
+  -webkit-transform: scale($size) rotate($degrees);  
+  -moz-transform: scale($size) rotate($degrees);
+}

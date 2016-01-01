@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="Playing device orientation events to poll">
+  <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=0">
+  <title>Poll mobile</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .gap {
+      margin-top: 1em;
+    }
+    .btn {
+      width: 100%;
+    }
+    .alert {
+      text-align: center;
+    }
+    .box {
+      width: 200px;
+      height: 90px;
+      margin: 0;
+      background: #aaa;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="col-lg-8 col-lg-offset-2 gap">
+
+    <div class="panel panel-danger" id="status">
+      <div class="panel-heading">
+        <h3 class="panel-title">Oops! Your browser does not support device orientation events.</h3>
+      </div>
+      <div class="panel-body">
+        Open this page in a mobile.
+      </div>
+    </div>
+
+    <div class="jumbotron" id="form">
+      <div class="bs-component">
+        <div class="form-group">
+          <input class="form-control input-lg" id="username" type="text" placeholder="my short name">
+        </div>
+        <div class="form-group">
+          <button type="submit" id="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-group" id="real-time-data">
+    <li class="list-group-item">
+      <span class="badge" id="beta">14</span>
+      &beta; (front-back)
+    </li>
+    <li class="list-group-item">
+      <span class="badge" id="gamma">2</span>
+      &gamma; (left-right)
+    </li>
+  </ul>
+
+  <div class="alert alert-default" id="yes-no">undecided</div>
+
+  <div id="poll" class="box"></div>
+
+</div>
+
+<script src="js/vendor/socket.io-client/socket.io.js"></script>
+<script>
+  var input = document.getElementById('username');
+  var submit = document.getElementById('submit');
+  var statusEl = document.getElementById('status');
+  var formEl = document.getElementById('form');
+  var submitEl = document.getElementById('submit');
+  var messageErrorBrowserNotSupported = 'Oops! ';
+  var realtimeDataEl = document.getElementById('real-time-data');
+  var yesNoEl = document.getElementById('yes-no');
+
+  // initializations
+  statusEl.style.display = 'none';
+  realtimeDataEl.style.display = 'none';
+  yesNoEl.style.display = 'none';
+
+  function displayUnsupported() {
+    statusEl.style.display = 'block';
+    formEl.style.display = 'none';
+    return;
+  }
+
+  submitEl.addEventListener('click', function() {
+    var username = document.getElementById('username').value.toLowerCase();
+
+    if (window.DeviceOrientationEvent) {
+      var socket = io();
+      socket.emit('new', username);
+
+      window.addEventListener('deviceorientation', function(event) {
+        if (event.beta && event.gamma) {
+          var poll = document.getElementById('poll');
+
+
+          var beta = event.beta.toFixed(2); // front-back
+          var betaFloor = Math.abs(90 - Math.floor(beta));
+          var gamma = event.gamma.toFixed(2); // left-right
+          var gammaFloor = Math.floor(gamma);
+
+          formEl.style.display = 'none';
+          poll.style.display = 'block';
+          yesNoEl.style.display = 'block';
+          realtimeDataEl.style.display = 'block';
+
+          document.getElementById('beta').innerHTML = beta + '°';
+          document.getElementById('gamma').innerHTML = gamma + '°';
+
+          if (beta < 15.0) {
+            poll.style.background = 'red';
+            yesNoEl.innerHTML = 'nope';
+            yesNoEl.className = 'alert alert-danger';
+            socket.emit('no', username);
+          } else if (beta > 75.0) {
+            poll.style.background = 'green';
+            yesNoEl.innerHTML = 'yes!';
+            yesNoEl.className = 'alert alert-success';
+            socket.emit('yes', username);
+          }
+
+          // chrome (android) styles
+          // poll.style.webkitTransform ='rotateZ(90deg) rotateY(' + betaFloor + 'deg)';
+          // poll.style.transform ='rotateZ(90deg) rotateY(' + betaFloor + 'deg)';
+
+          // chrome (android) and safari (ios) style
+          poll.style.height = (90 - betaFloor)*3 + 'px';
+          poll.style.marginTop = (betaFloor) + 'px';
+          poll.style.marginRight = 'auto';
+          poll.style.marginLeft = 'auto';
+        } else {
+          displayUnsupported();
+        }
+      });
+    } else {
+      displayUnsupported();
+    }
+  });
+</script>
+
+</body>
+</html>

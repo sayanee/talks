@@ -1,0 +1,100 @@
+.reveal {
+  a {
+    color: darken($blue, 10%);
+    text-decoration: underline;
+  }
+  img, video, iframe {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  pre {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: .7em;
+    code {
+      max-height: 600px;
+    }
+  }
+  pre[class*="language-"] {
+    padding: .5em;
+  }
+  iframe {
+    width: 100%;
+    height: 600px;
+  }
+  table {
+    thead {
+      color: $red;
+    }
+    td, th {
+      padding: .4em 1.8em;
+      border: none;
+    }
+    tbody tr:nth-child(2n+1) {
+      background: lighten($blue, 25%);
+    }
+  }
+  section img {
+    margin: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  small {
+    display: inline-block;
+    font-size: 0.39em;
+    line-height: 1.2em;
+    vertical-align: top;
+    font-weight: normal;
+    letter-spacing: 0;
+    a {
+      color: #7bc6b9;
+    }
+  }
+
+  blockquote {
+    display:block;
+    background: #fff;
+    padding: 15px 20px 15px 45px;
+    position: relative;
+    line-height: 1.2;
+    color: $black;
+    border-left: 15px solid $blue;
+    border-right: 2px solid $blue;
+    -moz-box-shadow: 2px 2px 15px $grey;
+    -webkit-box-shadow: 2px 2px 15px $grey;
+    box-shadow: 2px 2px 15px $grey;
+    font-style: normal;
+    font-size: 1.5em;
+    width: 85%;
+
+    &:before {
+      content: "\201C";
+      font-family: Georgia, serif;
+      font-size: 60px;
+      font-weight: bold;
+      color: $grey;
+      position: absolute;
+      left: 10px;
+      top:5px;
+    }
+
+    &:after {
+      content: "";
+    }
+
+    a {
+      text-decoration: none;
+      background: #eee;
+      cursor: pointer;
+      padding: 0 3px;
+      color: #c76c0c;
+      &:hover{
+        color: #666;
+      }
+    }
+    em {
+      font-style: italic;
+    }
+  }
+}

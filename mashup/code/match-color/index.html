@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+	<title>WebRTC: Still photo capture demo</title>
+	<meta charset='utf-8'>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+  .capture {
+    position: absolute;
+    top: 0;
+    display: none;
+    width: 50%;
+  }
+  video {
+    float: right;
+    width: 50%;
+  }
+  #saturated {
+    width: 100%;
+    height: 65px;
+    display: block;
+    background: transparent;
+    margin-bottom: 25px;
+    display: none;
+  }
+  .row-space {
+    margin-top: 20px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="nav" id="saturated">
+  <h3 class="text-center text-muted">press spacebar to change LED color</h3>
+</div>
+
+<div class="container">
+  <div class="row" id="config">
+    <div class="col-lg-offset-4 col-lg-4">
+      <h1 class="text-center">Match color!</h1>
+      <div class="form-group">
+        <input class="form-control" id="deviceID" name="deviceID" type="password" placeholder="deviceID">
+      </div>
+      <div class="form-group">
+        <input class="form-control" id="accessToken" name="accessToken" type="password" placeholder="accessToken">
+      </div>
+      <div class="form-group">
+        <button id="addConfig" class="btn btn-primary">Add Spark config</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="camera">
+    <div class="col-lg-6">
+      <video id="video">Video stream not available.</video>
+    </div>
+    <div class="col-lg-6">
+      <canvas id="canvas"></canvas>
+      <div class="output">
+        <img id="photo" class="capture" alt="The screen capture will appear in this box.">
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-space">
+    <div class="col-lg-offset-4 col-lg-4">
+      <button id="connectProximity" class="btn btn-block btn-primary">Connect to proximity sensor</button>
+    </div>
+  </div>
+
+  <div class="row row-space" id="proximity">
+    <div class="col-lg-offset-2 col-lg-8">
+      <div class="well">
+        <span id="distance"></span>
+        <div class="progress">
+          <div class="progress-bar" style="width: 60%;" id="proximityValue"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/capture.js"></script>
+<script src="js/color-thief.js"></script>
+<script src="js/one-color.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Comment:</b>
+  <%= @wall.comment %>
+</p>
+
+<p>
+  <b>Commenter:</b>
+  <%= @wall.commenter %>
+</p>
+
+
+<%= link_to 'Edit', edit_wall_path(@wall) %> |
+<%= link_to 'Back', walls_path %>

@@ -1,0 +1,17 @@
+/*
+width: 280px;
+7 frames
+*/
+
+body {
+  background-color: lightblue;
+}
+
+@-webkit-keyframes jump {
+ from { background-position: 0 0; }
+ to { background-position: -1680px 0;}
+}
+
+.deer {
+  -webkit-animation: jump .5s infinite steps(6);
+}

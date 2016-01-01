@@ -1,0 +1,74 @@
+.reveal {
+  .strikethrough {
+    text-decoration: line-through;
+  }
+  .small {
+    font-size: .6em;
+  }
+  .list {
+    color: $white;
+    text-align: center;
+    display: block;
+    margin: 2em 0;
+    li {
+      display: inline;
+      padding: 0;
+      margin: 1em;
+      font-size: 1.5em;
+      &:nth-child(odd) {
+        color: $red;
+      }
+      &:nth-child(even) {
+        color: $blue;
+      }
+      &:nth-child(3n) {
+        color: $green;
+      }
+      &:nth-child(5n) {
+        color: $yellow;
+      }
+    }
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  .text-bottom {
+    position: absolute;
+    bottom: -600px;
+    right: 0;
+    text-shadow: 0 0 5px black;
+  }
+
+  .text-important {
+    color: $red;
+  }
+  .text-info {
+    color: $blue;
+  }
+  .text-muted {
+    color: $grey;
+  }
+  .text-success {
+    color: $green;
+  }
+  .text-warning {
+    color: $yellow;
+  }
+  .text-white {
+    color: $white;
+  }
+
+  .bgr-info {
+    background: $blue;
+  }
+  .bgr-important {
+    background: $red;
+  }
+  .bgr-success {
+    background: $green;
+  }
+  .bgr-warning {
+    background: $yellow;
+  }
+}

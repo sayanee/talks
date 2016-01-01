@@ -1,0 +1,31 @@
+
+/* background-attachment */
+.box1 {background-attachment: scroll; }
+.box2 {background-attachment: fixed; }
+.box3 {background-attachment: local; }
+
+/* google reader */
+.box{
+  background: linear-gradient(white, white),
+  radial-gradient(at 50% 0, rgba(0,0,0,.2), transparent 70%);
+  background-size: 100% 15px, 100% 15px;
+  background-repeat: no-repeat;
+  background-attachment: local, scroll;
+}
+
+/* fixed width, fluid */
+section {
+  width: 100%;
+  padding: 20px calc(50% - 80% / 2 );
+}
+
+/* animation */
+body{ background-color: lightblue; }
+
+@-webkit-keyframes jump{
+   to { background-position: -1680px 0; }
+}
+
+.deer{
+  -webkit-animation: jump .5s infinite steps(6);
+}

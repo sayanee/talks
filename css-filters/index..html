@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Filters</title>
+  <style>
+
+  	* {
+  		margin: 0;
+  		padding: 0;
+  		font-family: sans-serif;
+  		line-height: 1.5em;
+  	}
+
+  	h1 {
+  		text-align: center;
+  		margin: 20px 0 0 0;
+  	}
+
+  	img {
+  		display: block;
+  		margin: 30px auto;
+
+  		/* 9 different types of css filters */
+  		/* uncomment each line below to see the effect
+  		-webkit-filter: blur(1px);
+  		-webkit-filter: grayscale(0.7);
+  		-webkit-filter: sepia(0.7);
+  		-webkit-filter: saturate(2);
+  		-webkit-filter: invert(0.9);
+  		-webkit-filter: hue-rotate(180deg);
+  		-webkit-filter: opacity(0.3);
+  		-webkit-filter: brightness(0.5);
+  		-webkit-filter: contrast(1.5);
+			*/
+
+			/* combined css filters */
+			/*
+  		-webkit-filter: grayscale(0.9) blur(3px) opacity(0.3);
+  		*/
+
+  	}
+
+  	img:hover {
+			-webkit-filter: blur(0px) grayscale(0) sepia(0) invert(0) hue-rotate(0deg) opacity(1) brightness(0);
+  	}
+
+  	.resources{
+  		margin: 50px auto;
+  		width: 960px;
+  		font-size: 14px;
+  	}
+
+  </style>
+</head>
+<body>
+
+	<h1>CSS Filters</h1>
+	<img src="pic.jpg" alt="">
+
+	<ol class="resources">
+		<li><a href="http://davidwalsh.name/css-filters">CSS Filters by David Walsh</a></li>
+		<li><a href="http://html5-demos.appspot.com/static/css/filters/index.html">HTML5 Demos on CSS Filters</a></li>
+		<li><a href="http://www.html5rocks.com/en/tutorials/filters/understanding-css/">HTML5 Rocks - Understanding CSS Filter Effects</a></li>
+		<li><a href="https://developer.mozilla.org/en-US/docs/CSS/filter">Mozilla Developer Network - CSS Filter</a></li>
+		<li><a href="http://blog.teamtreehouse.com/css-filter-effects">Teamtreehouse CSS Filter Effects</a></li>
+		<li><a href="http://caniuse.com/#feat=css-filters">Can I Use CSS Filter</a> - check browser compatibility</li>
+		<li><a href="http://www.instafilter.io/">InstaFilter</a> - freemium service for creating custom image filters</li>
+	</ol>
+
+</body>
+</html>

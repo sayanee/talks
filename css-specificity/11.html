@@ -1,0 +1,50 @@
+<style>
+  [class*='fav'] p:first-of-type span.hello {
+    color: red;
+  }
+
+  .fav p span {
+    color: blue;
+  }
+
+  [class*="heading-"] {
+    text-decoration: underline;
+  }
+
+  .heading-master {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .heading-second {
+    font-size: 18px;
+    font-weight: 300;
+  }
+</style>
+<span class="heading-master">Heading master</span>
+<span class="heading-second">Heading second</span>
+<div class="favicular">
+  <p>hello <span class="hello">what's my style?</span></p>
+  <p>hello <span class="hello">what's my style?</span></p>
+</div>
+
+<div class="fav">
+  <p>hello <span>what's my style?</span></p>
+  <p>hello <span>what's my style?</span></p>
+</div>
+
+Block - .block
+Element - .block__element
+Modifier - .block--modifier
+
+<div class="block">
+  <div class="block__title">
+
+  </div>
+</div>
+
+<div class="block block--modifier">
+  <div class="block__title">
+
+  </div>
+</div>

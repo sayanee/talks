@@ -1,0 +1,33 @@
+<!-- Open this file in any modern browser -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ES6 Destructuring</title>
+  <script src="https://traceur-compiler.googlecode.com/git/bin/traceur.js"
+  type="text/javascript"></script>
+  <script src="https://traceur-compiler.googlecode.com/git/src/bootstrap.js"
+  type="text/javascript"></script>
+  <script>
+  traceur.options.experimental = true;
+  </script>
+</head>
+<body>
+  <script type="text/traceur">
+
+  // ES6 Destructuring
+
+  // Variable Swapping
+  var [a, b] = ['Brisbane', 'Singapore'];
+  console.log('I bought the plane ticket ' + a + ' to ' + b  + ' for CampJS');
+  [a,b] = [b,a];
+  console.log('oops!! I meant, I bought the plane ticket ' + a + ' to ' + b  + ' for CampJS');
+
+  // Multiple-Variable returns
+  function jsEngines() {
+    return ['V8', 'SpiderMonkey', 'Trident'];
+  }
+  var [chrome, firefox, ie] = jsEngines();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+
+header{
+  height: 100px;
+  background-color: red;
+}
+
+footer{
+  height: 200px;
+  background-color: olive;
+}
+
+.footer-mobile{
+  height: 50px;
+  background-color: green;
+  display: none;
+}
+
+header, footer{
+  width: 100%; /* 100% */
+  clear: both;
+  margin: 0 0 10px 0;
+}
+
+@media (max-width: 760px) {
+  footer{
+    display: none;
+  }
+  .footer-mobile{
+    display: block;
+  }
+}
+
+
+
+

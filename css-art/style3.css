@@ -1,0 +1,16 @@
+body{
+  background-image:url(bg.jpg);
+}
+
+h1{
+  text-align:center;
+  font-size:10em;
+  margin:100px 0 0 0;
+  line-height:1em;
+  
+  font-family: 'Bowlby One', cursive;
+  background-image:url(text-bg.jpg);
+  -webkit-background-clip: text;
+  color:transparent;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.7);
+}

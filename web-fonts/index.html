@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Fonts & Icons Fonts!</title>
+  <link href='http://fonts.googleapis.com/css?family=Michroma|Rye' rel='stylesheet' type='text/css'>
+
+
+  <style>
+  	*{
+  		padding: 0;
+  		margin: 0;
+  	}
+    @font-face {
+    font-family: 'cc';
+    src: url('fonts/cc.eot');
+    src: url('fonts/cc.eot?#iefix') format('embedded-opentype'),
+         url('fonts/cc.woff') format('woff'),
+         url('fonts/cc.ttf') format('truetype'),
+         url('fonts/cc.svg#cc') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+  	.tagline{
+  		list-style-type: none;
+  		margin: 0 auto;
+  		padding: 0;
+  	}
+  	.tagline li{
+  		display: block;
+  		line-height: 1.2em;
+      text-align: center;
+      text-transform: uppercase;
+  	}
+    .tagline li:nth-child(2n+1){
+      font-family: 'Michroma', sans-serif;
+      font-size: 3vw;
+    }
+    .tagline li:nth-child(2n){
+      font-family: 'Rye', cursive;
+      font-size: 18vw;
+      background: url(bg.png) repeat;
+      -webkit-text-fill-color: rgba(54, 161, 180, 0.5);
+      -webkit-background-clip: text;
+      text-shadow: .05em .05em 2px rgba(0,0,0,0.1);
+      -webkit-text-stroke: 3px rgb(54, 161, 180);
+    }
+    .cc{
+      font-family: 'cc';
+    }
+
+  </style>
+</head>
+<body>
+
+	<ul class="tagline">
+		<li>the</li>
+		<li>creative</li>
+		<li>arts for the cool</li>
+		<li>crew</li>
+    <li><p class="cc">! * " $ % &</p></li>
+	</ul>
+
+</body>
+</html>

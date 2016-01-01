@@ -1,0 +1,35 @@
+.container{
+  width: 80%; /* 80% */
+  margin: 0 auto;
+}
+
+article{
+  height: 100px;
+  background-color: red;
+  width: 100%;
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  article{
+    background-color: blue;
+  }
+}
+
+/* iPad Landscape */
+@media (max-width: 1024px) {
+  article{
+    background-color: blue;
+    height: 300px;
+  }
+}
+
+/* iPad portrait */
+@media (max-width: 760px) {
+  
+}
+
+/* iPhones */
+@media (max-width: 480px) {
+
+}
