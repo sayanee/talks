@@ -1,95 +1,177 @@
 <!doctype html>
 <html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Web and Sensors</title>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Web and Sensors</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css" id="theme">
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<style>
+		.reveal section img {
+			border: none;
+			box-shadow: none;
+			margin: 0;
+		}
+		.reveal .slides > section, .reveal .slides > section > section {
+			padding: 0;
+		}
+	</style>
+</head>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css" id="theme">
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
+<body>
+	<div class="reveal">
 
-	<body>
-		<div class="reveal">
+		<div class="slides">
+			<section class="center">
+				<h1>Web and Sensors</h1>
+				<h5>Bringing the physical world interactions <br> to the web</h5>
+				<p>
+					<small>by <a href="http://sayan.ee">Sayanee</a> for <a href="https://generalassemb.ly/singapore">General Assembly Singapore</a></small>
+				</p>
+				<p>Follow along the slides at <a href="http://talks.sayan.ee/web-sensors">talks.sayan.ee/web-sensors</a></p>
+			</section>
 
-			<div class="slides">
-				<section class="center">
-					<h1>Web and Sensors</h1>
-					<h5>Bringing the physical world interactions <br> to the web</h5>
-					<p>
-						<small>by <a href="http://sayan.ee">Sayanee</a> for <a href="https://generalassemb.ly/singapore">General Assembly Singapore</a></small>
-					</p>
-				</section>
+			<section>
+				<h1>The simplest circuit</h1>
+				<p>We learnt from our primary school science teachers</p>
+				<img class="fragment" data-fragment-index="1" src="img/simple.jpg" alt="Simplest ciruit with a batter and a bulb">
+			</section>
 
-				<section>
-					<h1>The simplest circuit</h1>
-					<p>picture</p>
-				</section>
+			<section>
+				<h1>Breadboard</h1>
+				<img src="img/breadboard.jpg" alt="Breadboard internal wirings">
+			</section>
 
-				<section>
-					<h1>The simplest circuit</h1>
-					<ul>
-						<li>with an Arduino Uno, breadboard, LED and resistor</li>
-						<li>no code, no programming</li>
-					</ul>
-				</section>
+			<section>
+				<h1>The simplest circuit</h1>
+				<ul>
+					<li>with an Arduino Uno, breadboard, LED and resistor</li>
+					<li>no code, no programming</li>
+				</ul>
 
-				<section>
-					<h1>Demo 1</h1>
-					<h2>Simplest Circuit</h2>
-				</section>
+				<img src="img/simple-circuit.png" alt="Simplest ciruit with Arduino">
+			</section>
 
-				<section>
-					<h1>The Breadboard</h1>
-				</section>
+			<section class="center">
+				<h1><a href="/camera.html">DEMO</a></h1>
+			</section>
 
-				<section>
-					<h1>The Arduino Uno</h1>
-				</section>
+			<section>
+				<h1>The Hardware</h1>
+				<h3><a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a></h3>
+				<ul>
+					<li>8 bit</li>
+					<li><a href="http://www.atmel.com/Images/doc8161.pdf">ATmega328P</a></li>
+					<li>14 Digital IO Pins</li>
+					<li>6 Analog Input pins</li>
+					<li>On-board LED 13</li>
+					<li><a href="https://www.arduino.cc/en/Guide/HomePage">Huge community</a> and <a href="https://www.arduino.cc/en/Reference/Libraries">library</a></li>
+				</ul>
+			</section>
 
-				<section>
-					<h1>Johnny Five</h1>
-				</section>
+			<section>
+				<h1>The Abstraction</h1>
+				<blockquote>Any sufficiently advanced technology is indistinguishable from magic</blockquote>
+				<table>
+					<tr>
+						<td><a href="http://johnny-five.io/">johnny-five</a></td>
+						<td>laptop</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="1">
+						<td><a href="https://github.com/jgautier/firmata">firmata.js</a></td>
+						<td>laptop</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="2">
+						<td><a href="https://github.com/voodootikigod/node-serialport">serial-port</a></td>
+						<td>laptop</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="3">
+						<td><a href="https://www.arduino.cc/en/Reference/Firmata">formata program</a></td>
+						<td>arduino uno</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="4">
+						<td><a href="https://www.arduino.cc/en/Reference/HomePage">arduino library</a></td>
+						<td>arduino uno</td>
+					</tr>
+					<tr class="fragment" data-fragment-index="5">
+						<td>ATmega328p</td>
+						<td>arduino uno</td>
+					</tr>
+				</table>
+			</section>
 
-				<section>
-					<h1>Abstraction Layers</h1>
-				</section>
-			</div>
+			<section>
+				<h1>Johnny Five</h1>
+				<ol>
+					<li>Open Arduino IDE and upload <code>StandardFirmataPlus</code></li>
+					<li>Refer to <a href="https://github.com/sayanee/talks/tree/gh-pages/web-sensors/code">sample code folder</a></li>
+					<li>Run the <code>1-blink.js</code> with Node.js</li>
+				</ol>
+				<br><br><br>
+				<h1><a href="/camera.html">DEMO 1</a></h1>
+			</section>
+
+			<section>
+				<h1>9 Tiny lessons</h1>
+				<p><a href="https://github.com/sayanee/talks/tree/gh-pages/web-sensors/code">sample code folder</a> ~ 1 hour</p>
+				<img src="img/lessons.jpg" alt="">
+			</section>
+
+			<section>
+				<h1>Make a Tiny hack</h1>
+				<p>Create a tiny project in groups with the sensor values</p>
+				<ul>
+					<li>Electronics -> Browser</li>
+					<li>Browser -> Electronics</li>
+				</ul>
+
+				<hr>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Electronics</th>
+							<th>Web</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>LED, Button, Nob, Temperature, Proximity, Servo, Buzzer, Humidity, Light, Accelerometer</td>
+							<td>CSS3 Animations, DOM, Mouse events, Web Audio, API, Clicks, WebRTC, SVG, Canvas</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h1>More to learn!</h1>
+				<ol>
+					<li>Buy hardware: Adafruit, Sparkfun, dx, rs components, element14, 12 Geeks</li>
+					<li>Learn about electronics: Adafruit, Sparkfun, Hackaday, Contextual electronics</li>
+					<li>Podcasts: Ask an Engineer, Spark Gap, EEV Blog, Amp Hour</li>
+					<li>Hardware platforms: Arduino, Raspberry Pi, Particle, Little Bits, Tessel</li>
+					<li>Local community meetups: SG Maker meetup, Hackware, SG Maker Faire</li>
+					<li>Global Community events: Nodebots, Make magazine, Maker Faire</li>
+				</ol>
+			</section>
 		</div>
+	</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: false,
-				progress: true,
-				history: true,
-				center: false,
-				transition: 'none',
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script src="js/reveal.js"></script>
+	<script>
+		Reveal.initialize({
+			controls: false,
+			progress: true,
+			history: true,
+			center: false,
+			transition: 'none'
+		});
+	</script>
+</body>
 </html>

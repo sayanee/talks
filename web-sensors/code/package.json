@@ -1,0 +1,15 @@
+{
+  "name": "web-and-sensors",
+  "version": "1.0.0",
+  "description": "hook up sensors and electronics with web technologies via node and johnny five",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.13.3",
+    "johnny-five": "^0.9.17"
+  }
+}
