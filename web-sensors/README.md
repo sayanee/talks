@@ -21,9 +21,12 @@
 1. Arduino Uno
 - USB Cable A to B
 - Breadboard
-- LED pack with single / RGB LED
+- LED pack with single color / RGB
 - Resistor pack
-- Wires (pin to pin)
+- Wire pack (pin to pin)
+- Light dependent resistor (LDR) or photocell
+- LCD display
+
 
 ### for trainer
 
