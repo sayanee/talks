@@ -17,7 +17,7 @@
 ## Pre-requisite
 
 1. Download [Arduino IDE](https://www.arduino.cc/en/Main/Software), [Fritzing](http://fritzing.org/download/) and your choice of a text editor
-- Buy yourself or in pairs/groups/ Arduino Uno + Basic Kit for Arduino Elecrow kit from [12 Geeks](https://12geeks.com/shop/)
+- Buy yourself or in pairs/groups Arduino Uno + Basic Kit for Arduino Elecrow kit from [12 Geeks](https://12geeks.com/shop/)
 - Install Node and NPM
 - Working knowledge of Express, Web Socket / Socket.io
 - Some of the following:
