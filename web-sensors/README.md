@@ -14,22 +14,26 @@
 - Change the camera source in [Chrome Settings > Content > Camera](http://stackoverflow.com/a/14617402/496797)
 - Go to the [camera page](http://localhost:8000/camera.html)
 
-## Pre-requisite
+## Prepare before the workshop
 
-1. Download [Arduino IDE](https://www.arduino.cc/en/Main/Software), [Fritzing](http://fritzing.org/download/) and your choice of a text editor
-- Buy yourself or in pairs/groups Arduino Uno + Basic Kit for Arduino Elecrow kit from [12 Geeks](https://12geeks.com/shop/)
-- Install Node and NPM
-- Working knowledge of Express, Web Socket / Socket.io
-- Some of the following:
+### Software
+
+1. Download [Arduino IDE](https://www.arduino.cc/en/Main/Software) in your laptop
+- Download [Fritzing](http://fritzing.org/download/) in your laptop
+- Install a text editor of your choice to code Node.js and Frontend (HTML, CSS, JavaScript)
+- Install [Node and NPM](https://nodejs.org/en/)
+- Working knowledge of [Express](http://expressjs.com/), [Web Sockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) / [Socket.io](http://socket.io/)
+- Some of the following will be cool as you will use the sensor values to hook them up:
 	1. Web Audio
-	- Public API (E.g. Instagram, Twitter)
+	- Public APIs (E.g. Instagram, Twitter, Flickr)
 	- Graphing and charting (E.g. D3)
-	- CSS3 Animations / SVG / Transitions
-	- DOM manipulations
+	- CSS3 Animations / Transitions
+	- SVG
+	- DOM manipulation
 
-## Hardware list
+### Hardware list
 
-### for everyone
+#### for everyone
 
 1. Arduino Uno and USB Cable A to B
 - Arduino Elecrow kit with:
@@ -43,13 +47,12 @@
 	- (lesson 6) temperature [LM 35]
 	- (lesson 7) potentiometer / variable resistor
 	- (lesson 8) tilt sensor / switch
-- (lesson 9) proximity sensor [HC SR04] *(Ask the trainer)*
+- (lesson 9) proximity sensor [HC SR04]
 
 ![](img/lessons.jpg)
 
-### for trainer
+#### for instructor
 
 1. All above
 - USB camera
 - Multimeter
-- 3 X proximity sensor
