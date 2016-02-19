@@ -17,12 +17,20 @@
 		.slider {
 			width: 100%;
 		}
-		.sprite {
+
+		@-webkit-keyframes jump {
+			from { background-position: 0 0; }
+			to { background-position: -1680px 0;}
+		}
+
+		.deer {
 	    width: 280px;
 	    height: 456px;
 	    background: url('spritesheet.png');
 			margin: 0 auto;
+			-webkit-animation: jump 2s infinite steps(6);
 		}
+
 		.value {
 			font-style: bold;
 			font-size: 2vw;
@@ -31,25 +39,18 @@
 </head>
 <body>
 	<div class="container">
-		<div id="sprite" class="sprite"></div>
-		<input type="range" class ="slider" min=0 max=70 value=0/>
+		<div id="sprite" class="deer"></div>
+		<input type="range" class ="slider" min=0 max=100 value=0/>
 		<p id="slider-value" class="value">Slider value: 0</p>
 		<p id="resistor-value" class="value">Resistor value: 0 Ω</p>
 	</div>
 
-	<script src="motio.min.js"></script>
 	<script>
 		window.onload = function(){
-			var element = document.querySelector('#sprite');
+			var deer = document.getElementById('sprite');
 			var hasStarted = false;
-			var sprite = new Motio(element, {
-		    fps: 3.5,
-		    frames: 7
-			});
-
 			var slider = document.querySelector('input');
 			var sliderValue = document.getElementById('slider-value')
-
 			slider.value = 0
 
 			var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -68,13 +69,11 @@
 					bufferPlayer.loopEnd = decodedAudioBuffer.duration;
 					if (!navigator.userAgent.match(/(iPad|iPhone|iPod)/g)){
 						bufferPlayer.start(0,1);
-						sprite.play();
 						hasStarted = true;
 					}else{
 						document.body.addEventListener('touchstart', function(){
 							if (!hasStarted){
 								bufferPlayer.start(0,1);
-								sprite.play();
 								hasStarted = true;
 							}
 						});
@@ -87,10 +86,13 @@
 				console.log('Slide value: ' + slider.value);
 				sliderValue.innerText = 'Slider value: ' + slider.value;
 
-				var speed = Math.abs(slider.value)/40+0.5;
-
+				var speed = Math.abs(slider.value)/50+0.5;
 		  	bufferPlayer.playbackRate.value = speed;
-		  	sprite.set('fps', speed*14);
+
+				var animationDuration = (2 - slider.value/100 * 2 + 0.2) + 's'
+				console.log(animationDuration)
+				deer.style.animationDuration = animationDuration
+				deer.style.webkitTransitionDuration = animationDuration
 			})
 		}
 	</script>
