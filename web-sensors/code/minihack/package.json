@@ -4,6 +4,7 @@
   "description": "make the deer run faster with a potentiometer",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
