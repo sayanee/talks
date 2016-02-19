@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rudolph</title>
+	<input type="range" min=0 max=70 value=40/>
+	<style type="text/css">
+		.sprite {
+    width: 280px;
+    height: 456px;
+    background: url('spritesheet.png');
+	}
+	</style>
+</head>
+<body>
+	<div id="sprite" class="sprite"></div>
+	<script src="motio.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var element = document.querySelector('#sprite');
+			var hasStarted = false;
+			var sprite = new Motio(element, {
+			    fps: 3.5,
+			    frames: 7
+			});
+
+			var slider = document.querySelector('input');
+			var AudioContext = window.AudioContext || window.webkitAudioContext;
+			var context = new AudioContext();
+			var bufferPlayer = context.createBufferSource();
+			bufferPlayer.connect(context.destination);
+			var loadXHR = new XMLHttpRequest();
+			loadXHR.open('GET', 'audio.wav');
+			loadXHR.responseType = 'arraybuffer';
+			loadXHR.onload = function(){
+				context.decodeAudioData(loadXHR.response, function(decodedAudioBuffer){
+					bufferPlayer.buffer = decodedAudioBuffer;
+					bufferPlayer.loop = true;
+					bufferPlayer.playbackRate.value = 0.5;
+					bufferPlayer.loopStart = 1.0;
+					bufferPlayer.loopEnd = decodedAudioBuffer.duration;
+					if (!navigator.userAgent.match(/(iPad|iPhone|iPod)/g)){
+						bufferPlayer.start(0,1);
+						sprite.play();
+						hasStarted = true;
+					}else{
+						document.body.addEventListener('touchstart', function(){
+							if (!hasStarted){
+								bufferPlayer.start(0,1);
+								sprite.play();
+								hasStarted = true;
+							}
+						});
+					}
+				})
+			};
+			loadXHR.send();
+
+			if (window.DeviceOrientationEvent) {
+			  // Listen for the event and handle DeviceOrientationEvent object
+			  window.addEventListener('deviceorientation', function(evt){
+			  	var speed = Math.abs(evt.beta)/40+0.5;
+			  	bufferPlayer.playbackRate.value = speed;
+			  	sprite.set('fps', speed*14);
+			  }, false);
+			}
+			slider.addEventListener('input', function(evt){
+				console.log("input");
+				var speed = Math.abs(slider.value)/40+0.5;
+		  	bufferPlayer.playbackRate.value = speed;
+		  	sprite.set('fps', speed*14);
+			})
+		}
+	</script>
+</body>
+</html>
