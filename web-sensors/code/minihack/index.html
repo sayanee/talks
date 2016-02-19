@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>Rudolph</title>
-	<input type="range" min=0 max=70 value=40/>
-	<style type="text/css">
+	<style>
+		body {
+			font-family: Georgia;
+		}
+
+		.container {
+			margin: 0 auto;
+			padding: 0;
+			width: 400px;
+		}
+
+		.slider {
+			width: 100%;
+		}
 		.sprite {
-    width: 280px;
-    height: 456px;
-    background: url('spritesheet.png');
-	}
+	    width: 280px;
+	    height: 456px;
+	    background: url('spritesheet.png');
+			margin: 0 auto;
+		}
+		.value {
+			font-style: bold;
+			font-size: 2vw;
+		}
 	</style>
 </head>
 <body>
-	<div id="sprite" class="sprite"></div>
+	<div class="container">
+		<div id="sprite" class="sprite"></div>
+		<input type="range" class ="slider" min=0 max=70 value=0/>
+		<p id="slider-value" class="value">Slider value: 0</p>
+		<p id="resistor-value" class="value">Resistor value: 0 Ω</p>
+	</div>
+
 	<script src="motio.min.js"></script>
-	<script type="text/javascript">
+	<script>
 		window.onload = function(){
 			var element = document.querySelector('#sprite');
 			var hasStarted = false;
 			var sprite = new Motio(element, {
-			    fps: 3.5,
-			    frames: 7
+		    fps: 3.5,
+		    frames: 7
 			});
 
 			var slider = document.querySelector('input');
+			var sliderValue = document.getElementById('slider-value')
+
+			slider.value = 0
+
 			var AudioContext = window.AudioContext || window.webkitAudioContext;
 			var context = new AudioContext();
 			var bufferPlayer = context.createBufferSource();
@@ -55,17 +83,12 @@
 			};
 			loadXHR.send();
 
-			if (window.DeviceOrientationEvent) {
-			  // Listen for the event and handle DeviceOrientationEvent object
-			  window.addEventListener('deviceorientation', function(evt){
-			  	var speed = Math.abs(evt.beta)/40+0.5;
-			  	bufferPlayer.playbackRate.value = speed;
-			  	sprite.set('fps', speed*14);
-			  }, false);
-			}
-			slider.addEventListener('input', function(evt){
-				console.log("input");
+			slider.addEventListener('input', function(evt) {
+				console.log('Slide value: ' + slider.value);
+				sliderValue.innerText = 'Slider value: ' + slider.value;
+
 				var speed = Math.abs(slider.value)/40+0.5;
+
 		  	bufferPlayer.playbackRate.value = speed;
 		  	sprite.set('fps', speed*14);
 			})
