@@ -56,3 +56,19 @@
 1. All above
 - USB camera
 - Multimeter
+
+## Class schedule
+
+- 2pm - 2:30pm: Intro + Simplest circuit
+- 2:30pm - 3:30pm: `1-blink.js` to `5-button.js`
+- 3:30pm - 3:45pm: break!
+- 3:45pm - 4:45pm: `6-temp.js` to `9-proximity.js`
+- 4:45pm - 5:30pm:
+	- Go through boilerplate code
+	- Web Sockets + HTTP Get / Post
+	- Other Public APIs,
+- 5:30pm - 6pm:
+	- 60 seconds Demo
+	- What's next?
+	- Questions
+	- Feedback

@@ -1,5 +1,5 @@
 {
-  "name": "minihack",
+  "name": "minihack-boilerplate",
   "version": "1.0.0",
   "description": "make the deer run faster with a potentiometer",
   "main": "index.js",
