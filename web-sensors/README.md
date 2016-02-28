@@ -65,8 +65,7 @@
 - 3:45pm - 4:45pm: `6-temp.js` to `9-proximity.js`
 - 4:45pm - 5:30pm:
 	- Go through boilerplate code
-	- Web Sockets + HTTP Get / Post
-	- Other Public APIs,
+	- Create a mini hack!
 - 5:30pm - 6pm:
 	- 60 seconds Demo
 	- What's next?
