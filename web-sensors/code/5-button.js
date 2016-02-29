@@ -1,10 +1,13 @@
 // code: http://johnny-five.io/examples/button/
+
+// hardware wiring: http://johnny-five.io/examples/button/
+
 var five = require('johnny-five')
 var board = new five.Board()
 var button
 
 board.on('ready', function() {
-  button = new five.Button(2)
+  button = new five.Button(2) //  digital pin 2
 
   board.repl.inject({
     button: button
