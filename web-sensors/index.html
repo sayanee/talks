@@ -129,7 +129,8 @@
 				<h1>The Hardware</h1>
 				<h3><a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a></h3>
 				<ul>
-					<li>8 bit</li>
+					<li>8-bit <a href="https://www.arduino.cc/en/Tutorial/PWM">PWM</a> output with analog write</li>
+					<li>10-bit <a href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">ADC / resolution</a></li>
 					<li><a href="http://www.atmel.com/Images/doc8161.pdf">ATmega328P</a></li>
 					<li>14 Digital IO Pins</li>
 					<li>6 Analog Input pins</li>
@@ -170,14 +171,19 @@
 			</section>
 
 			<section>
-				<h1>Johnny Five</h1>
+				<h2>Hello world with <a href="camera.html">live demo</a></h2>
 				<ol>
-					<li>Open Arduino IDE and upload <code>StandardFirmataPlus</code></li>
-					<li>Refer to <a href="https://github.com/sayanee/talks/tree/gh-pages/web-sensors/code">sample code folder</a></li>
-					<li>Run the <code>1-blink.js</code> with Node.js</li>
+					<li>Open Arduino IDE</li>
+					<li>Open example <code>File > Examples > Firmata > StandardFirmataPlus</code></li>
+					<li>Plug in the Arduino Uno to your laptop</li>
+					<li>Choose board <code>Tools > Board > Arduino Uno</code></li>
+					<li>Choose port <code>Tools > Port > /dev/tty/usbmodem</code></li>
+					<li>Click <code>Verify</code> and <code>Upload</code></li>
+					<li>Create an empty folder on Desktop <code>iot</code></li>
+					<li>Create file <code>1-blink.js</code> with <a href="https://github.com/sayanee/talks/blob/gh-pages/web-sensors/code/1-blink.js">sample code</a></code>
+					<li>Install package in cli with <code>npm i johnny-five</code></li>
+					<li>Run the blink LED code in cli with <code>node 1-blink.js</code></li>
 				</ol>
-				<br><br><br>
-				<h1><a href="camera.html">DEMO 1</a></h1>
 			</section>
 
 			<section>
