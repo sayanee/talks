@@ -15,7 +15,7 @@ board.on('ready', function() {
   })
 
   proximity.on('data', function() {
-    console.log(this.cm + ' cm')
+    console.log(this.cm + ' cm at ' + new Date())
     // noisy data? You can use a smoothing algorithm:
     // http://stackoverflow.com/a/3761318/496797
   })

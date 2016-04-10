@@ -8,7 +8,7 @@ var potentiometer
 
 board.on('ready', function() {
   potentiometer = new five.Sensor({
-    pin: 'A2', // Analog pin A2
+    pin: 'A3', // Analog pin A3
     freq: 250 // value is read every 250 milli seconds
   })
 
