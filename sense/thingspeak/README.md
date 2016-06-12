@@ -48,3 +48,38 @@
 
   ![](readme-img/sequelpro_connect.png)
   ![](readme-img/sequelpro_tables.png)
+
+### Install MQTT
+
+1. Install Mosquitto, MQTT broker with `brew install mosquitto`
+- ensure `/usr/local/sbin`
+- try out `mosquitto -v` in the command line
+- code for the client subscription `mqtt.rb`
+
+  ```rb
+  require 'rubygems'
+  require 'mqtt'
+
+  # # Publish example
+  # MQTT::Client.connect('localhost', 1883) do |c|
+  #   c.publish('test', 'message')
+  # end
+
+  # Subscribe example
+  MQTT::Client.connect('localhost', 1883) do |c|
+    c.get('topic') do |topic,message|
+      puts "#{topic}: #{message}"
+    end
+  end
+  ```
+- start the mqtt subscription `ruby mqtt.rb`
+- publish in the command line:
+
+  ```shell
+  mosquitto_pub -h localhost -i 42 -t topic -m 'This is a test message'
+  ```
+- view the subscription topic and message:
+
+  ```
+  topic: This is a test message
+  ```
