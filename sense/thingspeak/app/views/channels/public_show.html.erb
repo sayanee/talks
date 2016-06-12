@@ -1,0 +1,80 @@
+<%= render :partial => "devinfo" %>
+<%= render :partial => "breadcrumb" %>
+<%= render :partial=>"socialbuttons" %>
+
+<div id="maincontent_nowidth" class="col-xs-12 col-sm-12">
+  <ul>
+    <li><a href="#publicview">Public View</a></li>
+  </ul>
+  <div id="publicview">
+    <%= render :partial => "public_show" %>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#watch').click(function() {
+    var checked = this.checked;
+    $.update(
+		  '/channels/<%= @channel.id %>/watch',
+			{ flag: checked },
+			function (response) {
+				if (checked) {
+		      $("#watchText").text("Un-watch");
+		    } else {
+		      $("#watchText").text("Watch");
+		    }
+			}
+		);
+	});
+
+    $("#devInfoLink").click(function() {
+				$("#devInfo").dialog("open") ;
+			    });
+
+$(document).on('page:load ready', function() {
+      $("#devInfo").dialog({
+			       autoOpen:false,
+			       resizable:false,
+			       width:"500px",
+			       position: {
+				   my: 'top',
+				   at: 'top',
+				   of: $('#maincontent_nowidth')
+			       },
+			       title: "Developer Info",
+			       dialogClass: "dev-info-dialog"
+
+			   });
+
+      $("#watch").button();
+      if ($("#watch").attr("checked")) {
+	  $("#watchText").text("Un-watch");
+      }
+      else {
+	  $("#watchText").text("Watch");
+      }
+
+      $("#maincontent_nowidth").tabs( {
+			  select: function( e, ui)
+			      {
+				  $.cookie('stickyTab', ui.index );
+			      }
+			  }
+			);
+
+      stickyTab = $.cookie( 'stickyTab' );
+
+	  if( ! isNaN( stickyTab )  )
+	  {
+              $("#maincontent_nowidth").tabs( 'select', stickyTab );
+	  }
+	  var current_user = "<%= @mychannel %>" ;
+
+	  var channel_id = <%= @channel.id %>;
+
+	  $.getJSON('/channels/<%=@channel.id %>/windows.json', createWindows (current_user, channel_id, "public") )
+	      .complete(function() {
+			    setupColumns(current_user, channel_id);
+			})
+
+      });
+</script>

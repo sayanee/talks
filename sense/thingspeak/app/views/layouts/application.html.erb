@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'layouts/header' %>
+
+  <body>
+
+    <div id="wrap">
+      <%= render 'layouts/nav' %>
+      <div class="container">
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+</html>
+

@@ -1,0 +1,51 @@
+<div class="FL">
+  <h3><%= t(:import) %></h3>
+  <%= t(:upload_select) %>
+  <br>
+
+  <%= form_for :upload, :url => upload_channel_path(@channel), :html => { :multipart => true } do |f| %>
+    <%= f.file_field :csv %>
+    <br><br>
+    <%= t(:time_zone) %>
+    <%= time_zone_select 'feed', 'time_zone', nil, :default => 'UTC' %>
+    <br><br>
+    <%= f.submit t(:upload), data: { disable_with: t(:uploading) }, class: 'btn btn-primary' %>
+  <% end %>
+
+  <br><br>
+
+  <h3><%= t(:export) %></h3>
+  <%= t(:download_feeds) %>
+  <br><br>
+  <%= button_to t(:download), "#{@ssl_api_domain}stream/channels/#{@channel.id}/feeds?api_key=#{@channel.write_api_key}", class: 'btn btn-primary' %>
+</div>
+
+<div id="sidebar_old" >
+ <ul>
+        <li>
+
+          <div class="helplink">(<a target="_blank" href="/docs/channels#update"><%= t(:help_options) %></a>)</div>
+          <h2><%= t(:help_channel_update) %></h2>
+          <%= t(:help_channel_post) %>
+          <div class="code"><%= "#{@ssl_api_domain}update" %></div>
+          <%= t(:help_channel_post_example) %>
+          <div class="code"><%= "#{@ssl_api_domain}update?key=#{@key}&field1=0" %></div>
+          <br><br>
+
+          <div class="helplink">(<a target="_blank" href="/docs/channels#get_feed"><%= t(:help_options) %></a>)</div>
+          <h2><%= t(:help_channel_feed) %></h2>
+          <%= t(:help_channel_view) %>
+          <br>
+          <div class="code"><%= link_to "#{@ssl_api_domain}channels/#{@channel.id}/feed.json?key=#{@key}", "#{@api_domain}channels/#{@channel.id}/feed.json?key=#{@key}", :target => '_blank' %></div>
+          <br>
+
+        </li>
+
+    <li>
+      <div class="helplink">(<a target="_blank" href="/docs/channels#importer"><%= t(:help_options) %></a>)</div>
+      <h2><%= t(:help) %></h2>
+      <%= t(:help_channel_import) %>
+    </li>
+  </ul>
+</div>
+

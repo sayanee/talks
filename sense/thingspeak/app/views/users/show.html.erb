@@ -1,0 +1,56 @@
+<div class="col-sm-5 col-xs-12">
+
+  <h4 class="breadcrumb"><%= t(:myaccount) %></h4>
+
+  <div class="col-pad">
+    <%= link_to t(:account_edit), edit_account_path, :class => 'btn btn-primary btn-sm' %>
+    <br><br>
+    <table class="table">
+      <tr>
+        <td><%= t(:userid) %></td>
+        <td><%= @user.login %></td>
+      </tr>
+      <tr>
+        <td><%= t(:email) %></td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td><%= t(:time_zone) %></td>
+        <td><%= @user.time_zone_or_utc %></td>
+      </tr>
+      <tr>
+        <td><%= t(:api_key) %></td>
+        <td>
+          <code><%= @user.api_key %></code><br><br>
+          <%= button_to t(:api_key_new), user_new_api_key_path, :data => { :confirm => t(:confirm_new_user_api_key) }, :class => 'btn btn-warning btn-sm' %>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+  <br><br>
+  <h4 class="breadcrumb"><%= t(:public_profile) %></h4>
+  <div class="col-pad">
+    <%= link_to t(:profile_edit), edit_profile_path, :class => 'btn btn-primary btn-sm' %>
+    <br><br>
+    <%= link_to t(:profile_view), user_profile_path(@user.login) %>
+    <br><br>
+    <% if @user.public_flag %>
+      <table class="table">
+        <tr>
+          <td><%= t(:profile_website) %></td>
+          <td><%= @user.website %></td>
+        </tr>
+        <tr>
+          <td><%= t(:profile_bio) %></td>
+          <td><%= @user.bio %></td>
+        </tr>
+      </table>
+    <% else %>
+      <%= t(:profile_not_public_me) %>
+    <% end %>
+
+  </div>
+</div>
+

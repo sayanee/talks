@@ -1,0 +1,32 @@
+<div class="col-xs-6 col-sm-6">
+  <h3><%= @channel.name %></h3>
+  <% if @channel.user.present? %>
+    <div>by <%= link_to @channel.user.login, user_profile_path(@channel.user.login) %></div><br>
+  <% end %>
+  <div><%= @channel.description %></div><br>
+  <% if @channel.tags.present? %>
+    <div>
+      <b>Tags:</b>
+      <% @channel.tags.each do |tag| %>
+        <a href="/channels/public?tag=<%=u tag.name %>"><%= tag.name %></a><% unless tag == @channel.tags.last %>, <% end %>
+      <% end %>
+    </div><br>
+  <% end %>
+</div>
+
+<div id="channellinks">
+  <div class="FR developerlink">
+    <a id="devInfoLink_<%= zone %>" href="#" class="topLink" ><%= t(:developer_info) %></a>
+  </div>
+  <% unless @channel.url.blank? %>
+  <div class="FR developerlink">
+    <%= link_to t(:for_more_information), @channel.url, :target => '_blank', :class => 'topLink'  %>
+  </div>
+  <% end %>
+  <% if @mychannel %>
+  <div class="FR developerlink"   >
+    <a href="#" id="portletAddLink_<%= zone %>" class="topLink " ><%= t(:add_portlets) %></a>
+  </div>
+  <% end %>
+</div> <!-- end channellinks -->
+

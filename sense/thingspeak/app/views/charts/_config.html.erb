@@ -1,0 +1,206 @@
+<div id="chartOptions<%= index %>" class="chartOptions"><%= options %></div>
+
+  <table class="FL MR60">
+    <tr>
+      <td><%= t(:title) %>:</td>
+      <td><input type="text" class="chart_options<%= index %>" id="title_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_xaxis) %>:</td>
+      <td><input type="text" class="chart_options<%= index %>" id="xaxis_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_yaxis) %>:</td>
+      <td><input type="text"  class="chart_options<%= index %>" id="yaxis_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_color) %>:</td>
+      <td><input type="text" class="chart_options<%= index %>" id="color_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_background_color) %>:</td>
+      <td><input type="text" class="chart_options<%= index %>" id="bgcolor_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_type) %>:</td>
+      <td>
+  <select class="chart_options<%= index %>" id="type_<%= index %>">
+    <option>line</option>
+    <option>bar</option>
+    <option>column</option>
+    <option>spline</option>
+  </select>
+      </td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_is_dynamic) %>:</td>
+      <td>
+  <select class="chart_options<%= index %>" id="dynamic_<%= index %>" >
+    <option value=""></option>
+    <option value="true">True</option>
+  </select>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><%= t(:days) %>:</td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="days_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:results) %>:</td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="results_<%= index %>" /></td>
+    </tr>
+<% if displayconfig %>
+    <tr>
+      <td><%= t(:width) %>:</td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="width_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:height) %>:</td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="height_<%= index %>" /></td>
+    </tr>
+<% end %>
+
+
+  </table>
+
+  <table>
+    <tr>
+      <td><%= t(:timescale) %>:</td>
+      <td>
+  <select class="chart_options<%= index %> mutuallyexclusive<%= index %>" id="timescale_<%= index %>" >
+    <option value=""></option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="60">60</option>
+    <option value="240">240</option>
+    <option value="720">720</option>
+    <option value="1440">1440</option>
+  </select>
+      </td>
+
+    </tr>
+
+    <tr>
+      <td><%= t(:average) %>:</td>
+      <td>
+  <select class="chart_options<%= index %> mutuallyexclusive<%= index %>" id="average_<%= index %>" >
+    <option value=""></option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="60">60</option>
+    <option value="240">240</option>
+    <option value="720">720</option>
+    <option value="1440">1440</option>
+  </select>
+      </td>
+    </tr>
+    <tr>
+      <td><%= t(:median) %>:</td>
+      <td>
+  <select class="chart_options<%= index %> mutuallyexclusive<%= index %>" id="median_<%= index %>" >
+    <option value=""></option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="60">60</option>
+    <option value="240">240</option>
+    <option value="720">720</option>
+    <option value="1440">1440</option>
+  </select>
+      </td>
+    </tr>
+    <tr>
+      <td><%= t(:sum) %>:</td>
+      <td>
+  <select class="chart_options<%= index %> mutuallyexclusive<%= index %>" id="sum_<%= index %>" >
+    <option value=""></option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+    <option value="60">60</option>
+    <option value="240">240</option>
+    <option value="720">720</option>
+    <option value="1440">1440</option>
+  </select>
+      </td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_round) %>:</td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="round_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_min) %>: </td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="min_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_max) %>: </td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="max_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_yaxis_min) %>: </td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="yaxismin_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><%= t(:chart_yaxis_max) %>: </td>
+      <td><input type="text" class="chart_options<%= index %> shortfield" id="yaxismax_<%= index %>" /></td>
+    </tr>
+    <tr>
+      <td><input type="button" id="button<%= index %>" value="<%= t(:chart_update) %>" /></td>
+      <td></td>
+    </tr>
+  </table>
+
+<% if displayconfig %>
+  <%= render :partial => 'charts/display',
+  :locals => {
+  :index => index,
+  :width => @width,
+  :height => @height,
+  :src => src,
+  :options => options
+  }
+  %>
+<% end %>
+
+<script type="text/javascript">
+
+  var options = '<%= options.gsub(/'/, "%27") if options %>';
+
+  $(document).on('page:load ready', function() {
+  // set initial saved values
+    $.each((options.split('&amp;')), setupChartForm(<%= index %> ));
+     // draw initial chart with saved options
+     var width = <%= (@width) ? @width : 450 %>;
+     var height = <%= @height ? @height : 260 %>;
+     updateChart(<%= index %>, false, width, height, <%= @channel.id %>);
+
+  });
+
+  // event to capture update button click
+  $('#button<%= index %>').click(function() {
+   var width = <%= (@width) ? @width : 450 %>;
+     var height = <%= @height ? @height : 260 %>;
+  updateChart(<%= index %>, true, width, height, <%= @channel.id %>);
+
+  });
+
+
+  $('.mutuallyexclusive<%= index %>').change(function() {
+    selectedValue = $(this).val();
+    $('.mutuallyexclusive<%= index %>').each(function () {
+        $(this).val("");
+    });
+    $(this).val(selectedValue);
+  });
+
+
+</script>
+

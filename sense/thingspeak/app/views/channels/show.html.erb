@@ -1,0 +1,109 @@
+<h2>
+  <%= link_to t(:channels), channels_path %> &raquo;
+  <%= t(:channel) %> <%= @channel.id %>
+</h2>
+
+<% if current_user && current_user.id == @channel.user_id %>
+  <ul>
+    <li><%= link_to t(:channel_edit), edit_channel_path(@channel.id) %></li>
+    <li><%= link_to t(:api_keys_manage), channel_api_keys_path(@channel) %></li>
+    <li><%= link_to "#{t(:charts_view)}", channel_charts_path(@channel) %></li>
+    <li><%= link_to "#{t(:channel_feed)} (json)", channel_feed_index_path(@channel, :key => @key, :format => :json) %></li>
+    <li><%= link_to "#{t(:channel_feed)} (xml)", channel_feed_index_path(@channel, :key => @key, :format => :xml) %></li>
+    <li><%= link_to "#{t(:channel_feed)} (csv)", channel_feed_index_path(@channel, :key => @key, :format => :csv) %></li>
+		<li><%= link_to t(:import_data), channel_import_path(@channel) %></li>
+  </ul>  
+
+  <br /><br />
+
+<table class="table_no_header">
+  <tr>
+    <td class="left"><%= t(:channel_id) %>:</td>
+    <td><%= @channel.id %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:channel_name) %>:</td>
+    <td><%= @channel.name %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:api_key_write) %>:</td>
+   <td><%= @key %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:channel_description) %>:</td>
+    <td><%= @channel.description %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:entries) %>:</td>
+    <td><%= (@channel.last_entry_id) ? @channel.last_entry_id : '0' %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:created) %>:</td>
+    <td><%= l @channel.created_at, :format => :pretty %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:latitude) %>:</td>
+    <td><%= @channel.latitude %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:longitude) %>:</td>
+    <td><%= @channel.longitude %></td>
+  </tr>
+  <tr>
+    <td class="left"><%= t(:elevation) %>:</td>
+    <td><%= @channel.elevation %></td>
+  </tr>
+  
+  <% @channel.attribute_names.each do |attr| %>
+      <% if attr.index('field') and @channel[attr] and !@channel[attr].empty? %>
+  
+        <tr>
+          <td class="left"><%= t(:field) %> <%= attr[-1] %>:</td>
+          <td><%= @channel[attr] %></td>
+        </tr>
+        
+      <% end %>
+    <% end %>
+
+</table>
+
+<% else %>
+  <% if @channel.public_flag %>
+    <%= t(:channel_public) %>
+    <br /><br />
+    <table class="table_no_header">
+        <tr>
+            <td class="left"><%= t(:channel_name) %>:</td>
+            <td><%= @channel.name %></td>
+        </tr>
+        <tr>
+            <td class="left"><%= t(:channel_description) %>:</td>
+            <td><%= @channel.description %></td>
+        </tr>
+
+        <% @channel.attribute_names.each do |attr| %>
+            <% if attr.index('field') and @channel[attr] and !@channel[attr].empty? %>
+       
+                <tr>
+                    <td class="left"><%= t(:field) %> <%= attr[-1] %>:</td>
+                    <td><%= @channel[attr] %></td>
+                </tr>
+       
+            <% end %>
+        <% end %>
+
+    </table>
+    
+    <% @channel.attribute_names.each do |attr| %>
+        <% if attr.index('field') and @channel[attr] and !@channel[attr].empty? %>
+   
+            <br /><br />
+            <iframe width="450" height="250" style="border: 1px solid #cccccc;" src="<%= "#{@domain}channels/#{@channel.id}/charts/#{attr[-1]}" %>"></iframe>
+           
+        <% end %>
+    <% end %>
+  <% else %>
+    <%= t(:channel_not_public) %>
+  <% end %>
+
+<% end %>

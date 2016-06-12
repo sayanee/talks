@@ -1,0 +1,167 @@
+<link href="//thingspeak.com/codemirror/codemirror.css" rel="stylesheet" />
+<link href="//thingspeak.com/codemirror/neat.css" rel="stylesheet" />
+<script type="text/javascript" src="//thingspeak.com/codemirror/codemirror.js"></script>
+<script type="text/javascript" src="//thingspeak.com/codemirror/xml.js"></script>
+<script type="text/javascript" src="//thingspeak.com/codemirror/javascript.js"></script>
+<script type="text/javascript" src="//thingspeak.com/codemirror/css.js"></script>
+<script type="text/javascript" src="//thingspeak.com/codemirror/htmlmixed.js"></script>
+
+<style type="text/css">
+  /* codemirror overrides */
+  pre { overflow: inherit !important; }
+  .activeline { background: #e8f2ff !important; }
+  .CodeMirror { border: 1px solid #ccc; }
+  .CodeMirror-scroll { height: 300px; }
+</style>
+
+<div class="col-sm-8 col-xs-12">
+
+  <ol class="breadcrumb" data-no-turbolink>
+    <li><%= link_to t(:plugins), plugins_path %></li>
+    <li><%= link_to plugin_path(@plugin.id), target: '_blank' do %><%= t(:plugin) %> <%= @plugin.id %><% end %></li>
+    <li class="active"><%= t(:edit) %></li>
+  </ol>
+
+  <%= form_for @plugin, :html => {:method => 'put', :class => 'form-horizontal'} do |c| %>
+    <%= error_messages_for 'plugin', :header_message => t(:try_again), :message => t(:plugin_error) %>
+
+    <div class="form-group">
+      <label class="col-sm-2 col-xs-12 control-label"><%= t(:plugin_name) %></label>
+      <div class="col-sm-10 col-xs-12"><%= c.text_field :name, :class => 'form-control' %></div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 col-xs-12 control-label"><%= t(:plugin_html) %></label>
+      <div class="col-sm-10 col-xs-12"><%= c.text_area :html, :class => 'form-control', :rows => 14 %></div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 col-xs-12 control-label"><%= t(:plugin_css) %></label>
+      <div class="col-sm-10 col-xs-12"><%= c.text_area :css, :class => 'form-control', :rows => 14 %></div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 col-xs-12 control-label"><%= t(:plugin_js) %></label>
+      <div class="col-sm-10 col-xs-12"><%= c.text_area :js, :class => 'form-control', :rows => 14 %></div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10 col-xs-12">
+        <div class="checkbox">
+          <label>
+            <%= c.check_box :public_flag %>
+            <b><%= t(:plugin_public_flag) %></b>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label"></label>
+      <div class="col-sm-10"><p class="form-control-static"><%= c.submit t(:save_model, model: 'Plugin'), :class => 'btn btn-primary' %></p></div>
+    </div>
+
+  <% end %>
+
+  <br><br>
+
+  <h3><%= t(:plugin_delete_message) %></h3>
+  <%= button_to t(:delete_model, model: 'Plugin'), plugin_path(@plugin.id), :method => 'delete', :data => { :confirm => t(:confirm_plugin_delete) }, :class => 'btn btn-danger' %>
+
+</div>
+
+<script type="text/javascript">
+
+  // when document is ready
+  $(document).on('page:load ready', function() {
+
+    // set html codemirror
+    var html_line = '';
+    var html_editor = CodeMirror.fromTextArea(document.getElementById("plugin_html"), {
+      lineNumbers: true,
+      indentUnit: 2,
+      extraKeys: {Tab: function(cm) { cm.replaceSelection("  ", "end"); }},
+      matchBrackets: true,
+      mode: "text/html",
+      height: '300px',
+      onCursorActivity: function() {
+        html_editor.setLineClass(html_line, null, null);
+        html_line = html_editor.setLineClass(html_editor.getCursor().line, null, "activeline");
+      }
+    });
+
+    // set css codemirror
+    var css_line = '';
+    var css_editor = CodeMirror.fromTextArea(document.getElementById("plugin_css"), {
+      lineNumbers: true,
+      indentUnit: 2,
+      extraKeys: {Tab: function(cm) { cm.replaceSelection("  ", "end"); }},
+      matchBrackets: true,
+      mode: "text/html",
+      height: '300px',
+      onCursorActivity: function() {
+        css_editor.setLineClass(css_line, null, null);
+        css_line = css_editor.setLineClass(css_editor.getCursor().line, null, "activeline");
+      }
+    });
+
+    // set js codemirror
+    var js_line = '';
+    var js_editor = CodeMirror.fromTextArea(document.getElementById("plugin_js"), {
+      lineNumbers: true,
+      indentUnit: 2,
+      extraKeys: {Tab: function(cm) { cm.replaceSelection("  ", "end"); }},
+      matchBrackets: true,
+      mode: "text/html",
+      height: '300px',
+      onCursorActivity: function() {
+        js_editor.setLineClass(js_line, null, null);
+        js_line = js_editor.setLineClass(js_editor.getCursor().line, null, "activeline");
+      }
+    });
+
+    // clears status message
+    function clearStatus() {
+      setTimeout(function() {
+        $('#status').html('');
+      }, 2500);
+    }
+
+    // event to capture update button click
+    $('#plugin_submit').click(
+        function() {
+      $.update(
+        // url to post to
+        '/plugins/ajax_update/<%= @plugin.id %>',
+
+        // data to send
+        {
+          plugin:
+          {
+              name: $('#plugin_name').val(),
+              public_flag: $('#plugin_public_flag').is(':checked'),
+              html: $('#plugin_html').val(),
+              css: $('#plugin_css').val(),
+              js: $('#plugin_js').val()
+          }
+        },
+
+        // if post was successful
+        function (response) {
+          var status = (response == '1') ? '<%= t(:saved) %>' : '<%= t(:saved_error) %>';
+          $('#status').html(status);
+          clearStatus();
+        },
+
+        // if post failed
+        function (response) {
+          $('#status').html('<%= t(:saved_error) %>');
+          clearStatus();
+        }
+      );
+      return false;
+    });
+
+  });
+</script>
+

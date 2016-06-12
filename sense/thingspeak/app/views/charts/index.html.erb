@@ -1,0 +1,67 @@
+<div id="maincontent">
+  <h2>
+    <%= link_to t(:channels), channels_path %> &raquo;
+    <%= link_to channel_path(@channel.id) do %> <%= t(:channel) %> <%= @channel.id %><% end %> &raquo;
+    <%= t(:charts) %>
+  </h2>
+
+  <% if !@channel.active? %>
+    <%= render :partial => 'config',
+      :locals => {
+        :displayconfig => true,
+        :title => t(:chart_example),
+        :src => "https://api.thingspeak.com/channels/3/charts/1",
+        :options => '&timescale=60&round=2',
+        :index => 0,
+        :width => @width,
+        :height => @height
+      }
+    %>
+
+    <h3><%= t(:chart_owned) %></h3>
+  <% end %>
+
+  <% @channel.attribute_names.each do |attr| %>
+    <% if attr.index('field') and @channel[attr] and !@channel[attr].empty? %>
+
+      <%= render :partial => 'config',
+        :locals => {
+                      :displayconfig => true,
+          :title => "#{@channel.name} - #{@channel[attr]}",
+          :src => "#{@domain}channels/#{@channel_id}/charts/#{attr[-1]}",
+          :options => @channel["options#{attr[-1]}"],
+          :index => attr[-1],
+          :width => @width,
+          :height => @height
+        }
+      %>
+
+    <% end %>
+  <% end %>
+</div>
+
+<div id="sidebar">
+  <ul>
+    <li>
+      <div class="helplink">(<a href="/docs/charts"><%= t(:help_options) %></a>)</div>
+      <h2><%= t(:help_charts) %></h2>
+      <%= t(:help_charts_options) %>
+      <br><br>
+      <%= t(:help_charts_embed) %>
+      <br><br>
+      &bull; <a href="http://community.thingspeak.com/tutorials/wordpress/how-to-embed-a-thingspeak-chart-on-your-wordpress-blog/">WordPress Tutorial</a>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+
+  $(document).on('page:load ready', function() {
+    // if chrome/safari error occurs, reload page
+    if ($('#title0').val() == '60' && $('#color0').val() == '10') {
+      window.location.reload();
+    }
+  });
+
+</script>
+

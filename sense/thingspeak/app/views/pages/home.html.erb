@@ -1,0 +1,133 @@
+<div id="home-top">
+
+  <div id="home-top-center">
+    <div id="home-motto">
+      <h1><%= t(:home_motto) %></h1>
+      <%= t(:home_tagline) %>
+    </div>
+
+    <br><br>
+
+    <div>
+      <%= link_to t(:get_started), new_user_registration_path, :class => 'btn btn-danger btn-lg' %>
+      <br><br>
+      <a href="/docs" target="_blank"><%= t(:documentation) %></a>
+      &nbsp; | &nbsp;
+      <a href="http://community.thingspeak.com/forum/" target="_blank"><%=t(:support)%></a>
+      &nbsp; | &nbsp;
+      <a href="https://github.com/iobridge/thingspeak" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+</div>
+
+<br><br>
+
+<div class="container">
+
+  <div class="row">
+
+    <%= render 'layouts/flash' %>
+
+    <div class="col-sm-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="fa fa-list fa-fw fa-lg"></i>
+            ThingSpeak Features
+          </h3>
+        </div>
+        <div class="panel-body panel-home">
+          <ul>
+            <li>Open API</li>
+            <li>Real-time data collection</li>
+            <li>Geolocation data</li>
+            <li>Data processing</li>
+            <li>Data visualizations</li>
+            <li>Device status messages</li>
+            <li>Plugins</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="fa fa-gears fa-fw fa-lg"></i>
+            Integrate
+          </h3>
+        </div>
+        <div class="panel-body panel-home">
+          <ul>
+            <li><a href="http://community.thingspeak.com/tutorials/arduino/using-an-arduino-ethernet-shield-to-update-a-thingspeak-channel/" target="_blank">Arduino</a></li>
+            <li>Raspberry Pi</li>
+            <li><a href="http://iobridge.com/" target="_blank">ioBridge</a> / <a href="http://realtime.io/" target="_blank">RealTime.io</a></li>
+            <li><a href="http://community.thingspeak.com/tutorials/electric-imp/data-storage-and-retrieval-with-thingspeak/" target="_blank">Electric Imp</a></li>
+            <li>Mobile / Web Applications</li>
+            <li>Social Networks</li>
+            <li><a href="http://www.mathworks.com/hardware-support/thingspeak.html" target="_blank">Data Analytics with MATLAB</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <i class="fa fa-comments fa-fw fa-lg"></i>
+            Connect With Us
+          </h3>
+        </div>
+        <div class="panel-body panel-home">
+          <ul>
+            <li><a href="https://github.com/iobridge/ThingSpeak" title="Open Source Internet of Things Project on GitHub" target="_blank">GitHub</a></li>
+            <li><a href="http://www.twitter.com/thingspeak" title="Follow ThingSpeak on Twitter" target="_blank">Twitter</a> / <a href="https://plus.google.com/+thingspeak" rel="publisher" target="_blank">Google+</a></li>
+            <li><a href="http://community.thingspeak.com/" title="ThingSpeak IoT Blog">Blog</a></li>
+            <li><a href="http://community.thingspeak.com/forum/" title="Join the ThingSpeak Forum">Forum</a></li>
+            <li><a href="/docs" title="ThingSpeak API and Apps Documentation">Documentation</a></li>
+            <li><a href="/docs/tutorials" title="ThingSpeak Tutorials">Tutorials</a></li>
+            <li><a href="mailto:support@thingspeak.com" title="Contact ThingSpeak">Questions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <div class="jumbotron">
+    <h1>Get Started</h1>
+    <p>If you are ready to build your Internet of Things, <%= link_to t(:signup), new_user_registration_path, :class => 'btn btn-primary btn-sm' %> for a free developer account.</p>
+    <p>
+      <a href="/docs" target="_blank" class="btn btn-info btn-lg btn-margin">Learn More</a>
+      <a id="contact_link" class="btn btn-success btn-lg btn-margin"><%= t(:contact_us) %></a>
+    </p>
+    <div id="contact_form">
+      <br>
+      <%= render :partial => 'pages/contact_form' %>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="hidden-xs panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <a href="http://community.thingspeak.com/" title="ThingSpeak Community, Blog, and Forum">Latest News<a> <a href="http://feeds.feedburner.com/internetofthings/" title="ThingSpeak RSS Feed"><i class="fa fa-rss fa-fw" style="color: #fff; background-color: #ff9305; border: 1px solid #cc7504;"></i></a>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <% cache("blog-posts-on-homepage", :expires_in => 10.minutes) do %>
+        <%= raw blog_entries %>
+      <% end %>
+    </div>
+  </div>
+
+  <br>
+
+</div>
+

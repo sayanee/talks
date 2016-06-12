@@ -1,0 +1,23 @@
+<head>
+  <title><%= @title.nil? ? (@menu.nil? ? 'ThingSpeak' : @menu.titleize + ' - ThingSpeak') : @title + ' - ThingSpeak' %></title>
+  <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta name="description" content="<%= "#{@title} on ThingSpeak: " if @title.present? %>Open source data platform and API for the Internet of Things.">
+  <meta name="keywords" content="iot, internet of things, iot platform, github, open source, internet of things platform, iobridge">
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cerulean/bootstrap.min.css" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+  <%= stylesheet_link_tag 'application', "data-turbolinks-track" => true %>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+  <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
+
+  <%= csrf_meta_tag %>
+  <% if Rails.env == 'production' %>
+    <%= render 'layouts/ga' %>
+  <% end %>
+
+  <%= yield :head %>
+</head>
+
