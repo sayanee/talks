@@ -50,11 +50,11 @@ class WindowsController < ApplicationController
     channel = Channel.find(params[:channel_id])
     windows = channel.public_windows(true).order(:position) unless params[:channel_id].nil?
 
-    if channel.recent_statuses.blank?
-      @windows = windows.delete_if { |w| w.window_type == "status"  }
-    else
-      @windows = windows
-    end
+    # if channel.recent_statuses.blank?
+    #   @windows = windows.delete_if { |w| w.window_type == "status"  }
+    # else
+    @windows = windows
+    # end
 
     @windows.each do |window|
       # modify the object before rendering the JSON
@@ -95,12 +95,12 @@ class WindowsController < ApplicationController
   def private_windows
     channel = Channel.find(params[:channel_id])
     windows = channel.private_windows(true).order(:position)
-
-    if channel.recent_statuses.blank?
-      @windows = windows.delete_if { |w| w.window_type == "status" }
-    else
-      @windows = windows
-    end
+    p windows
+    # if channel.recent_statuses.blank?
+    #   @windows = windows.delete_if { |w| w.window_type == "status" }
+    # else
+    @windows = windows
+    # end
 
     @windows.each do |window|
       # modify the object before rendering the JSON
@@ -151,4 +151,3 @@ class WindowsController < ApplicationController
 
   end
 end
-

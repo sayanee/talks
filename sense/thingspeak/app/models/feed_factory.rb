@@ -114,7 +114,7 @@ class FeedFactory < ApplicationController
       .load
 
     # sort properly
-    @feeds.reverse!
+    # @feeds.reverse!
 
     # calculate feeds
     @feeds = calculate_feeds(@feeds)
@@ -212,4 +212,3 @@ class FeedFactory < ApplicationController
   end
 
 end
-

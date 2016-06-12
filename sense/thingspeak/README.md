@@ -37,7 +37,7 @@
       socket: /tmp/mysql.sock
     ```
   - start the db server with `mysql.server restart`
-- start the rails server with `rails s`
+- start the rails server with `rails s --binding=0.0.0.0`
 - sign up through the GUI
 
   ![](readme-img/signup.png)
