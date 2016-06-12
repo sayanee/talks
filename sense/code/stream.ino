@@ -1,3 +1,4 @@
+/* Send an HTTP POST request only when streaming sensor data every interval */
 #include "SparkFunMAX17043/SparkFunMAX17043.h" // for lipo charger
 #include "HttpClient/HttpClient.h" // for http
 #include "lib.h" // for proximity sensor
