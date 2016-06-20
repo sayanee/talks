@@ -1,6 +1,5 @@
-/* Send an HTTP POST request only when there's an event - Switch ON / OFF */
+// RDRC Sense 2016 Demo 1: Photon + Switch + HTTP to Rails
 #include "HttpClient/HttpClient.h"
-
 #define ON_PIN D0
 
 bool state;
@@ -19,11 +18,12 @@ void setup()
     pinMode(ON_PIN, INPUT_PULLDOWN);
 
     Serial.begin(9600);
-    Serial.println("Hello World!");
+    Serial.println("Started RDRC demo 1...");
 }
 
 void loop()
 {
+
     if (digitalRead(ON_PIN) != state) {
         if (digitalRead(ON_PIN) == HIGH) {
             Serial.println("ON");
@@ -43,7 +43,7 @@ void sendState(int state) {
 
     Serial.println(path);
 
-    request.hostname = "10.0.1.22";
+    request.hostname = "192.168.2.1";
     request.port = 3000;
     request.path = path;
 

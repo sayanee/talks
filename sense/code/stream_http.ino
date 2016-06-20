@@ -1,9 +1,11 @@
-/* Send an HTTP POST request only when streaming sensor data every interval */
+// RDRC Sense 2016: Photon + Proximity + HTTP
+
 #include "SparkFunMAX17043/SparkFunMAX17043.h" // for lipo charger
 #include "HttpClient/HttpClient.h" // for http
 #include "lib.h" // for proximity sensor
 
 int led = D7;
+#define START_PIN D0
 
 double cm = 0.0;
 int trigPin = D4;
@@ -30,6 +32,7 @@ void setup()
     lipo.quickStart();
     lipo.setThreshold(10);
 
+    pinMode(START_PIN, INPUT_PULLDOWN);
     pinMode(led, OUTPUT);
 }
 
@@ -37,12 +40,18 @@ void loop()
 {
     cm = rangefinder.getDistanceCM();
     sprintf(distance, "%.f", cm);
-    Spark.publish("distance", distance);
-    sendDistance(distance);
-    digitalWrite(led, HIGH);
-    delay(1000);
-    digitalWrite(led, LOW);
-    delay(2000);
+
+    if (digitalRead(START_PIN) == HIGH) {
+        Serial.println("START!");
+        Spark.publish("distance", distance);
+        sendDistance(distance);
+        digitalWrite(led, HIGH);
+        delay(1000);
+        digitalWrite(led, LOW);
+        delay(2000);
+    } else {
+        Serial.println("Stop.");
+    }
 }
 
 void sendDistance(char* distance) {
@@ -52,9 +61,9 @@ void sendDistance(char* distance) {
     soc = lipo.getSOC();
 
     Serial.println(path);
-    Serial.println(soc);
+    // Serial.println(soc);
 
-    request.hostname = "10.0.1.22";
+    request.hostname = "192.168.2.1";
     request.port = 3000;
     request.path = path;
 

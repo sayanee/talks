@@ -1,13 +1,14 @@
+// RDRC Sense 2016 Demo 3: WeMos Node MCU + Temperature + MQTT to Rails
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <PubSubClient.h>
 
-char ssid[] = "secret";
-char pass[] = "secret";
+char ssid[] = "sense";
+char pass[] = "sns123456789";
 int status = WL_IDLE_STATUS;
 
-#define mqtt_server "10.0.1.22"
-#define topic "topic"
+#define mqtt_server "192.168.2.1"
+#define topic "8DH1XFGBT2IJX6F8/field1"
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -18,6 +19,7 @@ float temperature;
 uint8_t blink = LOW;
 
 void reconnect() {
+  // Loop until we're reconnected
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
 
@@ -65,11 +67,15 @@ void loop() {
   if (now - lastMsg > 1000) {
     lastMsg = now;
 
-    Serial.print("New temperature: ");
-    Serial.println(String(temperature).c_str());
-    client.publish(topic, String(temperature).c_str(), true);
+    if (digitalRead(D1) == HIGH) {
+      Serial.print("New temperature: ");
+      Serial.println(String(temperature).c_str());
+      client.publish(topic, String(temperature).c_str(), true);
 
-    digitalWrite(BUILTIN_LED, blink);
-    blink = !blink;
+      digitalWrite(BUILTIN_LED, blink);
+      blink = !blink;
+    } else {
+      Serial.println("Stop.");
+    }
   }
 }
