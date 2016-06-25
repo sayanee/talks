@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'mqtt'
+require 'httparty'
+
+# Loads Rails environment
+ENV['RAILS_ENV'] ||= 'development'
+require File.expand_path('../../config/environment', __FILE__)
+
+p 'Starting MQTT Subscription...'
+
+# Subscribe example
+MQTT::Client.connect('localhost', 1883) do |c|
+  c.get('8DH1XFGBT2IJX6F8/field1') do |topic, message|
+    api_key, field = topic.split('/')
+    path = "/update?key=#{api_key}&#{field}=#{message}"
+    puts Time.now.to_s + "  " + path
+    HTTParty.post('http://localhost:3000' + path)
+  end
+end

@@ -83,3 +83,10 @@
   ```
   topic: This is a test message
   ```
+
+## Before the talk
+
+1. start MSql server: `mysql.server restart`
+- start rails server: `rails s --binding=0.0.0.0`
+- start mqtt subscription server: `./bin/mqtt_sub`
+- clear all 3 channel data in thingspeak

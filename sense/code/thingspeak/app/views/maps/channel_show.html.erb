@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="text/javascript" src="http<%= 's' if @ssl %>://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/dev-assets/jquery.min.js"></script>
   <script type="text/javascript" src="<%= @map_domain %>/maps/api/js?sensor=false"></script>
   <script type="text/javascript">
     // when document is ready
@@ -42,4 +42,3 @@
   <div id="map_canvas" style="width: <%= params[:width] ? params[:width].to_i : @width.to_i %>px; height: <%= params[:height] ? params[:height].to_i : @height.to_i %>px;"></div>
 </body>
 </html>
-

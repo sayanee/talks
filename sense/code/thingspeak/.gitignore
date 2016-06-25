@@ -1,9 +1,0 @@
-log/*.log
-tmp/**/*
-tmp/restart.txt
-config/database.yml
-.DS_Store
-db/*.sqlite3
-.bundle
-.bundle/*
-*~

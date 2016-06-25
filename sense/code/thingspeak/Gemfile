@@ -38,7 +38,8 @@ gem 'tzinfo-data'
 gem 'turbolinks'
 gem 'geokit-rails'
 gem 'clockwork'
-
+gem 'mqtt'
+gem 'httparty'
 # to use debugger
 # gem 'ruby-debug'
 

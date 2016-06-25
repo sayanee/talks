@@ -1,0 +1,662 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Sense & Sensibility | RDRC 2016</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/day.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1 class="title-line-1">sense</h1>
+					<img src="img/logo.png" alt="RDRC logo" class="title-img">
+					<h1 class="title-line-2">sensibility</h1>
+					<p class="muted">use ← → keys to navigate</p>
+				</section>
+
+				<section class="center">
+					<h1>hi! i'm <a href="https://sayan.ee">sayan.ee</a></h1>
+					<h2>i 💖 rdrc = fun + code <br> emojis + hardware + friends</h2>
+				</section>
+
+				<section>
+					<div id="anime"></div>
+				</section>
+
+				<section>
+					<blockquote>
+						<br>
+						<p><strong>wheel</strong> is an extension of the <strong>foot</strong></p>
+						<br>
+						<p><strong>book</strong> is an extension of the <strong>eye</strong></p>
+						<br>
+						<p><strong>clothing</strong> is an extension of the <strong>skin</strong></p>
+						<br>
+						<p><strong>electric circuitry</strong> is an extension of the <br>	 <strong>central nervous system</strong></p>
+						<br>
+					</blockquote>
+				</section>
+
+				<section>
+					<table class="layers">
+						<tr>
+							<th>Compose</th>
+							<td>IFTTT Mashup <br>Web apps</td>
+							<td>Web of Things Mashup</td>
+						</tr>
+						<tr>
+							<th>Share</th>
+							<td>OAuth Token <br>Encryption</td>
+							<td>Social Web of Things</td>
+						</tr>
+						<tr>
+							<th>Find</th>
+							<td>Schema.org <br>Semantic</td>
+							<td></td>
+						</tr>
+						<tbody class="info">
+							<tr>
+								<th>Access</th>
+								<td>HTML, URL, JSON, <br>Sockets, <span>HTTP</span>, REST</td>
+								<td><span>MQTT</span>, CoAP</td>
+							</tr>
+							<tr>
+								<th>Wireless</th>
+								<td>NFC, <span>WiFi</span>, Bluetooth,<br>4G</td>
+								<td>BLE, IEEE 802.15.4,<br>5G, LoRaWAN</td>
+							</tr>
+								<th>Sensors</th>
+								<td>pressure, <span>switch</span>, light, <span>proximity</span>, water, <span>temperature</span>, power</td>
+								<td>cheaper & compact</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>IoT platform</h2>
+					<ul class="websites">
+						<li>
+							<p><a href="https://thingspeak.com/">hosted thingspeak</a></p>
+							<img src="img/thingspeak.png" alt="ThingSpeak hosted platform">
+						</li>
+						<li>
+							<p><a href="https://github.com/iobridge/thingspeak">open sourced thingspeak</a></p>
+							<img src="img/thingspeak-github.png" alt="ThingSpeak open source code"></li>
+					</ul>
+					<ul class="features">
+						<li>🔌 communication: sensor → rails</li>
+						<li>⏲ rhythm: event / periodic</li>
+						<li>📈 visualisation: charts + graphs</li>
+						<li>⚙ hooks: triggers + notification</li>
+					</ul>
+
+					<aside class="notes">Open sourced version is Ruby 2.1, Rails 4.2</aside>
+				</section>
+
+				<section>
+					<ul class="topics">
+						<li><h1>🖲 event with http</h1></li>
+						<li><h1>📡 periodic with http</h1></li>
+						<li><h1>🌡 periodic with mqtt</h1></li>
+					</ul>
+				</section>
+
+				<section class="center">
+					<ul class="topics">
+						<li><h1>🖲 event with http</h1></li>
+					</ul>
+				</section>
+
+				<section>
+					<table>
+						<tr>
+							<td></td>
+							<th><h2>WiFi</h2></th>
+							<th><h2>2G/3G</h2></th>
+						</tr>
+						<tr>
+							<td>range</td>
+							<td>medium</td>
+							<td>large</td>
+						</tr>
+						<tr>
+							<td>comm</td>
+							<td>device ⇔ router</td>
+							<td>device ⇔ cell tower</td>
+						</tr>
+						<tr>
+							<td>comms <br> chip</td>
+							<td><a href="https://www.broadcom.com/products/wireless-connectivity/wireless-lan/bcm43362">Broadcom BCM43362</a>, <br><a href="https://en.wikipedia.org/wiki/ESP8266">ESP8266</a></td>
+							<td><a href="https://www.u-blox.com/en/product/sara-u2-series">u-blox SARA</a>, <a href="https://cdn-shop.adafruit.com/datasheets/SIM5320_Specification_V1202.PDF">SIM5320</a></td>
+						</tr>
+						<tr>
+							<td>dev kits</td>
+							<td><a href="https://store.particle.io/collections/photon">Photon</a>, <a href="http://nodemcu.com/index_en.html">NodeMCU</a>, <br><a href="https://www.adafruit.com/product/2471">Huzzah</a>, <a href="http://beta.espressolite.com/">Espresso</a></td>
+							<td>Particle's <a href="https://store.particle.io/collections/electron">Electron</a>, <br>Adafruit's <a href="https://www.adafruit.com/product/2542">FONA</a></td>
+						</tr>
+						<tr>
+							<td>cost</td>
+							<td> < 20 USD </td>
+							<td> < 100 USD (data plan) </td>
+						</tr>
+					</table>
+					<video autoplay class="camera1" id="camera1"></video>
+				</section>
+
+				<section>
+					<h2>setup</h2>
+					<div class="setup">
+						<div class="sensor">🖲<span class="sensor-detail">switch</span></div>
+						<div class="wire"></div>
+						<div class="microcontroller1">µ-controller<span>STM32</span></div>
+						<div class="wire"></div>
+						<div class="connection">WiFi<span>BCM43362</span></div>
+						<div class="server">server <div class="rails">rails</div></div>
+					</div>
+					<video autoplay class="camera2" id="camera2"></video>
+					<img class="wiring" src="img/demo1.png" alt="Switch and Particle Photon wiring">
+				</section>
+
+				<section>
+					<h2>demo - http post + api</h2>
+					<iframe width="1024" height="600" src="http://localhost:3000">thingspeak ui</iframe>
+				</section>
+
+				<section>
+					<h2>applications</h2>
+					<p>IoT button</p>
+					<img src="img/dashbuttons.jpg" alt="" />
+					<img src="img/dash.png" alt="Amazon Dash developer page">
+				</section>
+
+				<section>
+					<h2>code - firmware</h2>
+					<pre>
+						<code class="c" data-trim>
+
+if (digitalRead(ON_PIN) == HIGH) {
+  sendState(1);
+} else {
+  sendState(0);
+}
+
+...
+
+void sendState(int state) {
+  char path[200];
+  sprintf(path, "/update?key=GQL7FLZXTK35ATAO&field1=%d", state);
+
+  request.hostname = "10.0.1.22";
+  request.port = 3000;
+  request.path = path;
+
+ http.post(request, response, headers);
+}
+ 						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>code - rails</h2>
+					<pre>
+						<code class="ruby" data-trim>
+# routes.rb
+match 'update', :to => 'channels#post_data', :via => [post]
+
+# channels_controller.rb
+def post_data
+  feed = Feed.new
+  api_key = ApiKey.find_by_api_key(get_apikey)
+
+  # check write permission
+  # check api key
+  # rate limiting
+  feed.field1 = params[:field1]
+  # feed.save and render
+end
+						</code>
+					</pre>
+				</section>
+
+				<section class="center">
+					<ul class="topics">
+						<li><h1>📡 periodic with http</h1></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>setup</h2>
+					<div class="setup">
+						<div class="sensor">📡<span class="sensor-detail">proximity</span></div>
+						<div class="wire"></div>
+						<div class="microcontroller1">µ-controller<span>STM32</span></div>
+						<div class="wire"></div>
+						<div class="connection">WiFi<span>BCM43362</span></div>
+						<div class="server">server <div class="rails">rails</div></div>
+					</div>
+					<video autoplay class="camera3" id="camera3"></video>
+					<img class="wiring" src="img/demo2.png" alt="Proximity and Particle Photon wiring">
+				</section>
+
+				<section>
+					<h2>demo - data</h2>
+					<iframe width="1024" height="600" src="http://localhost:3000">thingspeak ui</iframe>
+				</section>
+
+				<section>
+					<h2>code - rails models</h2>
+					<pre>
+						<code class="ruby" data-trim>
+class Channel < ActiveRecord::Base
+  ...
+  belongs_to :user
+  has_many :feeds
+  has_many :api_keys, :dependent => :destroy
+  ...
+end
+
+class Feed < ActiveRecord::Base
+  ...
+  belongs_to :channel
+  attr_readonly :created_at
+  ...
+end
+
+class ApiKey < ActiveRecord::Base
+  belongs_to :channel
+  belongs_to :user
+  validates_uniqueness_of :api_key
+end
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>code - rails lib</h2>
+					<pre>
+						<code class="ruby" data-trim>
+def generate_api_key(size = 16, type = 'channel')
+  alphanumerics = ('0'..'9').to_a + ('A'..'Z').to_a
+  new_key = (1..size).map {alphanumerics[Kernel.rand(36)]}.join
+  ...
+end
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>code - rails controllers</h2>
+					<pre>
+						<code class="ruby" data-trim>
+class FeedController < ApplicationController
+  def show
+    ...
+    respond_to do |format|
+      format.html { render :text => output }
+      format.json { render :json => output,
+        :callback => params[:callback] }
+      format.xml { render :xml => output }
+      format.csv
+      format.text { render :text => output }
+    end
+  end
+end
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>applications</h2>
+					<p>urban waste management with ultrasonic sensors</p>
+					<img src="img/garbage.png" alt="Smart Wastement Management">
+				</section>
+
+				<section>
+					<h2>examples</h2>
+					<ul class="platforms">
+						<li>
+							<a href="https://thingspeak.com/"><img src="img/thingspeak-logo.png" alt="Thingspeak Logo"></a>
+							<img src="img/rails.png" alt="Rails logo" />
+						</li>
+						<li><a href="https://www.carriots.com/"><img src="img/carriots-logo.png" alt="Carriots Logo" /></a></li>
+						<li><a href="http://tinamous.com/"><img src="img/tinamous-logo.png" alt="Tinamous Logo" /></a></li>
+						<li><a href="https://evrythng.com/"><img src="img/evrythng-logo.png" alt="Carriots Logo" /></a></li>
+						<li><a href="http://open.sen.se/"><img src="img/opensense-logo.png" alt="Open Sense Logo" /></a></li>
+						<li><a href="https://xively.com/"><img src="img/xively-logo.png" alt="Xively Logo" /></a></li>
+						<li><a href="https://internetofthings.ibmcloud.com"><img src="img/ibm-logo.png" alt="IBM Watson IoT Logo" /></a></li>
+						<li><a href="http://www.kaaproject.org/platform/#hardware"><img src="img/kaa-logo.png" alt="Kaa Project Logo" /></a></li>
+						<li>
+							<a href="https://io.adafruit.com/"><img src="img/adafruit-logo.png" alt="Adafruit IO Logo" /></a>
+							<img src="img/rails.png" alt="Rails logo" />
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>standard</h2>
+					<img src="img/wot.png" alt="Web of Things by W3C">
+				</section>
+
+				<section class="center">
+					<ul class="topics">
+						<li><h1>🌡 periodic with mqtt</h1></li>
+					</ul>
+				</section>
+
+				<section>
+					<table class="protocols">
+						<tr>
+							<td>standard</td>
+							<td><a href="https://tools.ietf.org/html/rfc7230">RFC 7230</a> (1.1) <br> <a href="https://tools.ietf.org/html/rfc7540">RFC 7540</a> (2)</td>
+							<td><a href="https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html">OASIS 3.1.1</a></td>
+							<td><a href="https://tools.ietf.org/html/rfc7252">RFC 7252</a></td>
+						</tr>
+						<tr>
+							<th>Application Layer</th>
+							<th><h2>HTTP</h2></th>
+							<th><h2>MQTT</h2></th>
+							<th><h2>CoAP</h2></th>
+						</tr>
+						<tr>
+							<td>Transport Layer</td>
+							<td>TCP</td>
+							<td>TCP / UDP</td>
+							<td>UDP</td>
+						</tr>
+						<tr>
+							<td>exchange </td>
+							<td>Req / Res</td>
+							<td>Pub / Sub</td>
+							<td>Req / Res</td>
+						</tr>
+						<tr>
+							<td>header size</td>
+							<td>> 200 bytes</td>
+							<td>2 bytes</td>
+							<td>4 bytes</td>
+						</tr>
+						<tr>
+							<td>data format</td>
+							<td>ASCII / Text</td>
+							<td>Binary</td>
+							<td>Binary</td>
+						</tr>
+						<tr>
+							<td>power usage</td>
+							<td>high</td>
+							<td>low</td>
+							<td>low</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>setup</h2>
+					<div class="setup">
+						<div class="sensor">🌡<span class="sensor-detail">temperature</span></div>
+						<div class="wire"></div>
+						<div class="microcontroller2">µ-controller <span>ESP8266</span></div>
+						<div class="wire"></div>
+						<div class="connection">WiFi <span>ESP8266</span></div>
+						<div class="server">server <div class="rails">rails</div></div>
+					</div>
+					<video autoplay class="camera4" id="camera4"></video>
+					<img class="wiring" src="img/demo3.png" alt="Temperature sensor LM35 and ESP8266 WeMos NodeMCU">
+				</section>
+
+				<section>
+					<h2>demo</h2>
+					<iframe width="1024" height="600" src="http://localhost:3000">thingspeak ui</iframe>
+				</section>
+
+				<section>
+					<h2>firmware - mqtt publish</h2>
+					<pre>
+						<code class="c" data-trim>
+#include < PubSubClient.h >
+#define mqtt_server "10.0.1.22"
+#define topic "8DH1XFGBT2IJX6F8/field1" // topic = api_key/field
+
+void setup() {
+	...
+  client.setServer(mqtt_server, 1883);
+}
+
+void loop() {
+  ...
+  sensorValue = analogRead(A0);
+  temperature = (sensorValue / 1024.0) * 3.3 * 100.0;
+
+  ...
+  client.publish(topic, String(temperature).c_str(), true);
+}
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>rails - mqtt subscribe</h2>
+					<pre>
+						<code class="ruby" data-trim>
+# bin/mqtt_sub
+
+#!/usr/bin/env ruby
+require 'mqtt'
+
+MQTT::Client.connect('localhost', 1883) do |c|
+  subscription = '8DH1XFGBT2IJX6F8/field1'
+
+  c.get(subscription) do |topic, message|
+    api_key, field = topic.split('/')
+
+    feed = Feed.new
+    # check api key and other checks
+    feed[ field ] = message
+
+    # feed.save and render
+  end
+end
+						</code>
+					</pre>
+				</section>
+
+				<section>
+					<h2>applications</h2>
+					<p>home power meter</p>
+					<img src="img/power_meter.jpg" style="max-width: 700px; display:inline-block;vertical-align:top" alt="Home Power Meter" />
+					<img class="addon" src="img/wifi.gif" alt="Wireless connection" />
+				</section>
+
+				<section>
+					<table class="data">
+						<tr>
+							<td>daily</td>
+							<td><img src="img/daily.png" alt="Daily Graph pattern"></td>
+						</tr>
+						<tr>
+							<td>weekly</td>
+							<td><img src="img/weekly.png" alt="Weekly Graph pattern"></td>
+						</tr>
+						<tr>
+							<td>yearly</td>
+							<td><img src="img/yearly.png" alt="Yearly Graph pattern"></td>
+						</tr>
+					</table>
+					<tr >
+						<td colspan=2>
+							<p>stop? reset? action? notify? trigger? change?</p>
+							<p>💉 🏥 🚛 🛳 🚰 ⛽ 🤖 ⛑ 🌳 🌲 🌸 🌔 🍄</p>
+						</td>
+					</tr>
+				</section>
+
+				<section>
+					<blockquote>
+						<br>
+						<p>wheel is an extension of the foot</p>
+						<p>book is an extension of the eye</p>
+						<p>clothing is an extension of the skin</p>
+						<p>electric circuitry is an extension of the <br> central nervous system</p>
+						<br>
+						<p>The extension of any one <strong>sense</strong> <br>displaces the other <strong>sense</strong> and <br><strong>alters</strong> the way we think <br>the way we see the world and <strong>ourselves</strong></p>
+						<p class="quote">
+							~ Marshall McLuhan, The Medium is the Message
+						</p>
+					</blockquote>
+				</section>
+
+				<section class="center">
+					<h1 class="ending">let's <span class="explore">explore</span> the <span class="explore">senses</span> around us!</h1>
+					<br>
+					<p>✨ thank you ✨ slides at <a href="https://talks.sayan.ee/sense">talks.sayan.ee/sense</a></p>
+				</section>
+
+				<section>
+					<h2>References 📚</h2>
+					<ul>
+						<li>thank you <a href="https://twitter.com/kopisam">Sam</a>, <a href="https://twitter.com/hanmd82">Ming Ding</a>, <a href="https://twitter.com/hxtan_">Hwee Xian</a>, <a href="https://twitter.com/ntt">Chinmay</a></li>
+						<li><a href="https://www.youtube.com/watch?v=d-T40eRDGgc">When we build</a> talk by Wilson Minor</li>
+						<li><a href="https://en.wikipedia.org/wiki/The_medium_is_the_message">Medium is the Message</a> by Marshall McLuhan</li>
+						<li><a href="https://en.wikipedia.org/wiki/Web_of_Things">Web of Things</a> at <a href="https://www.w3.org/WoT/">W3C</a></li>
+						<li><a href="http://www.slideshare.net/yeokm1/introduction-to-bluetooth-low-energy/9">Wireless constaint triangle</a> by Yeo Kheng Meng</li>
+						<li><a href="http://apod.nasa.gov/apod/ap160531.html">text background image</a> by <a href="http://apod.nasa.gov/apod/astropix.html">APOD</a></li>
+						<li><a href="https://en.wikipedia.org/wiki/Web_of_Things#/media/File:Layers_of_the_Web_of_Things_Architecture.png">Web of Things</a> architecture and <a href="http://webofthings.org/2011/12/01/phd-web-of-things-app-archi/">thesis</a></li>
+						<li><a href="https://www.youtube.com/watch?v=T1XIL-FkMj4">Internet of Things</a> talk by Vlad Trifa</li>
+						<li>Data graphs <a href="http://www.c2es.org/docUploads/trans-3-10-2014.png">1</a>, <a href="http://www.c2es.org/docUploads/trans-3-10-2014.png">2 and 3</a></li>
+						<li><a href="http://www.slideshare.net/paolopat/mqtt-iot-protocols-comparison">MQTT & IoT protocols comparison</a></li>
+						<li><a href="http://www.pepperl-fuchs.sg/singapore/zh/27019.htm">Smart waste management</a> by Pepperl+Fuchs</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Buy 🔋 🔌 🎛 🕹 </h2>
+					<ul>
+						<li><a href="https://www.adafruit.com/categories">Adafruit</a></li>
+						<li><a href="https://www.sparkfun.com/">SparkFun</a></li>
+						<li><a href="http://sg.element14.com/">element14</a></li>
+						<li><a href="http://www.aliexpress.com/">Aliexpress</a></li>
+						<li><a href="https://12geeks.com/shop/">12Geeks</a></li>
+						<li><a href="http://sg.rs-online.com/web/">RS Components</a></li>
+						<li><a href="https://world.taobao.com/">Taobao</a></li>
+						<li><a href="https://www.seeedstudio.com/">Seeed Studio</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>ruby firmata library</h2>
+					<img src="img/artoo.png" alt="Artoo Framework" />
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script id="curves" type="text/x-custom-template">
+			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px" height="1000px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+				<path class="path-1" fill="#fff" stroke="#444444" stroke-width="8" stroke-miterlimit="10" d="M0,700 C150,700 50,450 250,450"/>
+				<path class="path-2" fill="#fff" stroke="#444444" stroke-width="8" stroke-miterlimit="10" d="M200,500 C350,500 350,200 500,200"/>
+				<path class="path-3" fill="#fff" stroke="#444444" stroke-width="8" stroke-miterlimit="10" d="M450,250 C550,250 550,50 750,50"/>
+				<path class="path-4" fill="#fff" stroke="#444444" stroke-width="8" stroke-miterlimit="10" d="M700,100 C850,100 850,-100 1000,-100"/>
+			</svg>
+			<p class="curve-1">📻 integrated circuits</p>
+			<p class="curve-2">💻 personal computing</p>
+			<p class="curve-3">🌍 internet and web</p>
+			<p class="curve-4">🤔 new?</p>
+			<p class="xaxis">→ time</p>
+			<p class="yaxis">↑ performance</p>
+		</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				center: false,
+				history: true,
+				controls: false,
+				progress: false,
+				transition: 'none',
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+			// start the technology cruve animation on keypress SHIFT
+			var template = document.getElementById("curves").innerHTML
+			document.addEventListener("keydown", focusTopics, false)
+
+			function focusTopics(e) {
+				var keyCode = e.keyCode;
+			  if(keyCode == 16) { // shift key
+					if (Reveal.getIndices().h ===  4) {
+						document.getElementById("focus").className = 'info'
+					}
+			  }
+			}
+
+			// camera
+			var camera1 = document.getElementById('camera1')
+			var camera2 = document.getElementById('camera2')
+			var camera3 = document.getElementById('camera3')
+			var camera4 = document.getElementById('camera4')
+		  var constraints = {
+		    audio: false,
+		    video: true
+		  }
+		  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
+		  function successCallback(stream) {
+		    window.stream = stream // stream available to console
+		    if (window.URL) {
+		      camera1.src = window.URL.createObjectURL(stream)
+					camera2.src = window.URL.createObjectURL(stream)
+					camera3.src = window.URL.createObjectURL(stream)
+					camera4.src = window.URL.createObjectURL(stream)
+		    } else {
+		      camera1.src = stream
+					camera2.src = stream
+					camera3.src = stream
+					camera4.src = stream
+		    }
+		  }
+		  function errorCallback(error) {
+		    console.log('navigator.getUserMedia error: ', error)
+		  }
+		  navigator.getUserMedia(constraints, successCallback, errorCallback)
+
+			Reveal.addEventListener('slidechanged', function( event ) {
+	    	if (Reveal.getIndices().h ===  2) {
+					document.getElementById("anime").innerHTML = template
+				} else if (Reveal.getIndices().h === 8) {
+					camera1.play()
+				} else if (Reveal.getIndices().h === 9) {
+					camera2.play()
+				} else if (Reveal.getIndices().h === 15) {
+					camera3.play()
+				} else if (Reveal.getIndices().h === 24) {
+					camera4.play()
+				}
+			})
+		</script>
+	</body>
+</html>

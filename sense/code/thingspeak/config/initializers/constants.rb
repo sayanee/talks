@@ -1,6 +1,6 @@
 # allow updates via HTTP GET by setting this to true;
 # set to false to only allow updates via HTTP POST
-GET_SUPPORT = true
+GET_SUPPORT = false
 
 # rate limit channel updates
 RATE_LIMIT = false
@@ -29,4 +29,3 @@ RESET_PASSWORD_URL = 'http://127.0.0.1:3000//users/reset_password/'
 
 # allow only these additional locales (use downcase, easier to parse)
 ALLOWED_LOCALES = ['pt-br','it']
-
