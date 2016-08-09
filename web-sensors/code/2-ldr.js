@@ -1,7 +1,5 @@
 // code: http://johnny-five.io/examples/photoresistor/
-
 // hardware wiring: http://johnny-five.io/examples/photoresistor/
-
 // info: LDR / Photoresistor / Photocell / Light dependant resistor
 // https://en.wikipedia.org/wiki/Photoresistor
 
@@ -22,6 +20,6 @@ board.on('ready', function() {
   photoresistor.on('data', function() {
     console.log(this.value)
     // hover your finger above the LDR - do you see the values changing?
-    // can you bring this value to the browser with Web Socket?
+    // can you bring this value to the frontend in the browser with Web Sockets?
   })
 })

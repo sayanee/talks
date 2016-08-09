@@ -1,7 +1,5 @@
 // code: http://johnny-five.io/examples/temperature-lm35/
-
 // hardware wiring: http://johnny-five.io/examples/temperature-lm35/
-
 // info: Search online "LM35 datasheet" - can you find more info about this sensor?
 
 var five = require('johnny-five')
@@ -15,6 +13,7 @@ five.Board().on('ready', function() {
   temperature.on('data', function() {
     console.log(this.celsius)
     // tip: Too many decimal points? Try Math.round()
+    // want to change the temperature? breathe on it!
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math/round
 
     // tip: Too jittery sensor value?

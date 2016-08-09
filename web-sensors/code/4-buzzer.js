@@ -1,7 +1,6 @@
 // code: http://johnny-five.io/examples/piezo/
-
 // hardware wiring: http://johnny-five.io/examples/piezo/
-// connection: longer pin to analog, shorter pin to ground
+// connection: shorter pin to ground, longer pin to digital pwm pin 3
 // tip: you will need to put the buzzer on the breadboard so that it is easy to connect
 
 var five = require('johnny-five')

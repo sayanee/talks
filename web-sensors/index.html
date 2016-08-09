@@ -140,7 +140,7 @@
 
 			<section>
 				<h1>The Hardware</h1>
-				<h3><a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino Uno</a></h3>
+				<h3><a href="https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino / Genuino Uno</a></h3>
 				<ul>
 					<li>8-bit <a href="https://www.arduino.cc/en/Tutorial/PWM">PWM</a> output with analog write</li>
 					<li>10-bit <a href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">ADC / resolution</a></li>
@@ -186,16 +186,60 @@
 			<section>
 				<h2>Hello world with <a href="camera.html">live demo</a></h2>
 				<ol>
-					<li>Open Arduino IDE</li>
-					<li>Open example <code>File > Examples > Firmata > StandardFirmataPlus</code></li>
-					<li>Plug in the Arduino Uno to your laptop</li>
-					<li>Choose board <code>Tools > Board > Arduino Uno</code></li>
-					<li>Choose port <code>Tools > Port > /dev/tty/usbmodem</code></li>
-					<li>Click <code>Verify</code> and <code>Upload</code></li>
+					<li>
+						Open example <code>StandardFirmataPlus</code>
+						<img src="img/firmata.png" alt="Choose Standard Firmata Plus" style="height:600px">
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>Hello world with <a href="camera.html">live demo</a></h2>
+				<ol start="2">
+					<li>Plug in the Arduino/Genuino Uno to your laptop</li>
+					<li>
+						Choose board
+						<img src="img/board.png" alt="Choose Arduino/Genuino Uno Board" style="height:250px">
+					</li>
+					<li>
+						Choose port
+						<img src="img/port.png" alt="Choose port" />
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>Hello world with <a href="camera.html">live demo</a></h2>
+				<ol start="5">
+					<li>
+						Click <code>Verify</code>
+						<img src="img/verify.png" alt="Verify code">
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>Hello world with <a href="camera.html">live demo</a></h2>
+				<ol start="6">
+					<li>
+						Click <code>Upload</code>
+						<img src="img/upload.png" alt="Upload code">
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>Hello world with <a href="camera.html">live demo</a></h2>
+				<ol start="7">
+					<li>Close the Arduino IDE</li>
 					<li>Create an empty folder on Desktop <code>iot</code></li>
 					<li>Create file <code>1-blink.js</code> with <a href="https://github.com/sayanee/talks/blob/gh-pages/web-sensors/code/1-blink.js">sample code</a></code>
 					<li>Install package in cli with <code>npm i johnny-five</code></li>
-					<li>Run the blink LED code in cli with <code>node 1-blink.js</code></li>
+					<li>
+						Run the blink LED code in cli with <code>node 1-blink.js</code>
+						<img src="img/blinky.gif" alt="On board LED 13 blinking" />
+					</li>
+
 				</ol>
 			</section>
 

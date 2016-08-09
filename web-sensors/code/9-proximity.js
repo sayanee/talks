@@ -2,7 +2,6 @@
 // paste this in Arduino IDE and upload: https://gist.githubusercontent.com/rwaldron/0519fcd5c48bfe43b827/raw/f17fb09b92ed04722953823d9416649ff380c35b/PingFirmata.ino
 
 // code: http://johnny-five.io/examples/proximity-hcsr04/
-
 // hardware wiring: http://johnny-five.io/examples/proximity-hcsr04/
 
 var five = require('johnny-five')

@@ -1,5 +1,4 @@
 // code: http://johnny-five.io/examples/led-blink/
-
 // hardware wiring: http://www.thirdeyevis.com/images/3v-led-diagram.png
 // tip: LED's shorter pin to GND
 

@@ -1,5 +1,4 @@
 // code: http://johnny-five.io/examples/potentiometer/
-
 // hardware wiring: http://johnny-five.io/examples/potentiometer/
 
 var five = require('johnny-five')

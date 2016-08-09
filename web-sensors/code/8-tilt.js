@@ -1,5 +1,5 @@
 // code: http://johnny-five.io/examples/switch-tilt-SW_200D/
-// hardware wiring: longer pin to the 5V and shorter pin to GND
+// hardware wiring: longer pin to the 5V and shorter pin to GND via a resistor
 
 var five = require('johnny-five')
 var board = new five.Board()
@@ -12,7 +12,7 @@ board.on('ready', function() {
     button: tilt
   })
 
-  // tilt the breadboard to the right, towards to the ground pin
+  // tilt the breadboard towards to the ground pin
   tilt.on('down', function() {
     console.log('down')
   })
