@@ -1,0 +1,237 @@
+.reveal h1 {
+  font-weight: normal;
+}
+
+.reveal h1.title {
+  font-family: Pacifico;
+  font-size: 5em;
+  font-weight: normal;
+  color: white;
+}
+
+.reveal h2.title {
+  color: white;
+}
+
+.reveal h1.title:before {
+  content: "{ ";
+  color: #ffda01;
+}
+
+.reveal h1.title:after {
+  content: " }";
+  color: #ffda01;
+}
+
+.reveal .hardware, .reveal .server, .reveal .server-host {
+  border: 5px solid #444;
+  width: 280px;
+  height: 120px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.reveal .host {
+  border: 5px solid #444;
+  width: 725px;
+  height: 120px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.reveal .gateway {
+  border: 5px solid #444;
+  width: 40px;
+  height: 120px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.reveal .js-topics {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reveal .js-topics li {
+  margin: 2em 0
+}
+
+.reveal .hardware:before,
+.reveal .server:before,
+.reveal .server-host:before,
+.reveal .host:before,
+.reveal .gateway:before {
+  color: #444;
+  display: block;
+  transform: rotate(-90deg);
+  position: absolute;
+  font-size: .7em;
+  margin-top: 45px;
+}
+
+.reveal .hardware:before, .reveal .host:before {
+  content: "hardware";
+  left: -30px;
+}
+
+.reveal .server:before {
+  content: "server";
+  left: -15px;
+}
+
+.reveal .server-host:before {
+  content: "host";
+  left: -6px;
+}
+
+.reveal .gateway:before {
+  content: "gateway";
+  left: -30px;
+}
+
+.reveal .num {
+  display: inline-block;
+  background: #eee;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  margin: 35px 35px 35px 0;
+  border: 4px solid #444;
+  font-size: 1.5em;
+}
+
+.reveal .connection {
+  display: inline-block;
+  border-top-width: 5px;
+  border-top-color: #444;
+  height: 15px;
+  border-bottom-width: 5px;
+  border-bottom-color: #444;
+  margin: -10px -10px;
+}
+
+.reveal .solid {
+  width: 160px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+}
+
+.reveal .dash {
+  width: 140px;
+  border-top-style: dashed;
+  border-bottom-style: dashed;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.reveal .js {
+  height: 120px;
+  width: 120px;
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  float: right;
+}
+
+.reveal .wifi {
+  height: 44px;
+  display: inline-block;
+  transform: rotate(90deg);
+  width: 158px;
+  vertical-align: top;
+  margin-top: 93px;
+  margin-left: -72px;
+}
+
+.reveal .middle {
+  text-align: center;
+}
+
+.reveal .camera {
+  height: 530px;
+}
+
+.reveal .camera-hardware, .reveal .img-hardware {
+  width: 525px;
+  float: left;
+}
+
+.reveal .instructions {
+  width: 500px;
+  margin: .3em 0;
+  padding: 0;
+}
+
+.reveal .explain-hardware {
+  width: 300px;
+}
+
+.reveal .explain-hardware th {
+  background: #ffda01;
+}
+
+.reveal .explain-hardware th,
+.reveal .explain-hardware td {
+  width: 100%;
+  display: block;
+  padding: .6em;
+  border: none;
+}
+
+.reveal .slides section[data-transition=none],
+.reveal.none .slides section:not([data-transition]) {
+  padding: 0;
+}
+
+.reveal .table-talk td, .reveal .table-talk th {
+  padding: .6em;
+}
+
+.reveal .examples {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.reveal .examples li {
+  display: inline-block;
+  width: 800px;
+}
+
+.reveal .examples li:nth-child(2) {
+  left: 150px;
+  top: 150px;
+  position: absolute;
+}
+
+.reveal .examples li:nth-child(3) {
+  left: 300px;
+  top: 300px;
+  position: absolute;
+}
+
+.reveal .demo1-results {
+  float: right;
+  width: 225px;
+  height: 550px;
+}
+
+
+.decision {
+  display: inline-block;
+}
+
+.reveal .emphasis {
+  background: #ffda01;
+}
+
+.reveal .quote {
+  text-align: left;
+  margin: 0 0 2em 0;
+}

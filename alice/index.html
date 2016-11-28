@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Alice in hardware land</title>
+	<!--
+	The world of web technologies and tiny wireless embedded devices are coming closer than ever with the Internet of Things. In this talk, we will explore some common ways how a JavaScript code can communicate with a microcontroller.
+
+	Just like Alice, we will dive deep into the magical world of a protocol to communicate with microcontrollers, Internet protocols to talk to a web server and embedded JavaScript that can run directly on a microcontroller. There will be adventures with pings, requests, runtimes and your participation at Mad Hatter's hardware demo party might be needed.
+
+	So let's unravel the magic of JavaScript and microcontrollers, understand this magic, and most importantly learn to recreate this magic!
+ 	-->
+
+	<meta name="description" content="Alice in microcontroller land">
+	<meta name="author" content="Sayanee Basu">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/day.css" id="theme">
+	<link rel="stylesheet" href="css/talk.css">
+	<link rel="stylesheet" href="lib/css/highlight.css">
+
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides center">
+			<section data-background="#333333" class="center">
+				<h1 class="title">Sayanee</h1>
+				<h3 class="subtitle">in Bavaria</h3>
+			</section>
+
+			<section data-background="#333333" class="center">
+				<h1 class="title">Alice</h1>
+				<h3 class="subtitle">in hardware land</h3>
+				<p class="tagline">JavaScript models of interaction with the physical world</p>
+			</section>
+
+			<section class="center">
+				<ol class="js-topics">
+					<li>
+						<div class="num"> 1 </div>
+						<div class="host"><img src="img/js.png" alt="JS Logo" class="js"></div>
+					</li>
+					<li class="fragment" data-fragment-index="1">
+						<div class="num"> 2 </div>
+						<div class="hardware"></div>
+						<div class="connection dash"></div>
+						<div class="server-host"><img src="img/js.png" alt="JS Logo" class="js"></div>
+					</li>
+					<li class="fragment" data-fragment-index="2">
+						<div class="num"> 3 </div>
+						<div class="hardware"></div>
+						<div class="wifi"><img src="img/wifi.gif" alt="WiFi animated logo"></div>
+						<div class="gateway"></div>
+						<div class="server"><img src="img/js.png" alt="JS Logo" class="js"></div>
+					</li>
+				</ol>
+			</section>
+
+			<section class="center">
+				<ol class="js-topics">
+					<li>
+						<div class="num"> 1 </div>
+						<div class="host"><img src="img/js.png" alt="JS Logo" class="js"></div>
+						<p class="middle">JavaScript running on hardware: <br>single-board computers or micro-controllers</p>
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>JS on Single-board computer</h2>
+				<table class="table-talk">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Processor</th>
+							<th>Architecture</th>
+							<th>OS</th>
+						</tr>
+						<tr style="background:#eee">
+							<th>My laptop</th>
+							<td>Intel Core i5</td>
+							<td>x86</td>
+							<td>MacOS</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="1">
+							<th>Tessel 2</th>
+							<td><a href="https://wikidevi.com/wiki/MediaTek_MT7620">MediaTek MT7620</a></td>
+							<td>MIPS</td>
+							<td>Linux (OpenWRT)</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<th>Raspberry PI 3</th>
+							<td>Broadcom BCM2837</td>
+							<td>ARM</td>
+							<td>Linux (Debian)</td>
+						</tr>
+						<tr class="fragment" data-fragment-index="2">
+							<th>Beaglebone Black</th>
+							<td><a href="http://www.ti.com/lsds/ti/processors/sitara/arm_cortex-a8/am335x/overview.page">Sitara AM335x</a></td>
+							<td>ARM</td>
+							<td>Linux (Debian)</td>
+						</tr>
+					</thead>
+				</table>
+
+				<p class="fragment" data-fragment-index="3">Node.js (ARM / MIPS) running on a tiny computer <br>with GPIO and wireless capabilities!</p>
+			</section>
+
+			<section>
+				<h1><strong style="background:#ffda01">GPIO</strong> is general-purpose input/output pin on a chip or computer board</h1>
+			</section>
+
+			<section>
+				<h2>JS on micro-controllers</h2>
+
+				<ul class="examples">
+					<li><img src="img/1-jerryscript.png" alt="JerryScript website"></li>
+					<li><img src="img/1-ducktape.png" alt="Ducktape website"></li>
+					<li><img src="img/1-espruino.png" alt="Espruino website"></li>
+				</ul>
+			</section>
+
+			<section>
+				<section>
+					<h2>Demo</h2>
+					<ol class="instructions">
+						<li>Join WiFi: <code style="background:#ffda01;">TesselRouter</code></li>
+						<li>Visit URL: <code style="background:#ffda01;">192.168.1.101</code></li>
+					</ol>
+					<video autoplay="" class="camera" id="camera1" style="float:left"></video>
+					<iframe src="http://192.168.1.101/o" class="demo1-results"></iframe>
+				</section>
+			</section>
+
+			<section>
+				<h2>Hardware: Tessel & Servo</h2>
+				<img src="img/tessel.jpg" alt="Tessel and Servo hardware wiring" class="img-hardware">
+				<video autoplay="" class="camera-hardware" id="camera2"></video>
+
+				<table class="explain-hardware">
+					<tr>
+						<th>Tessel</th>
+						<td><a href="https://tessel.io">Tessel 2</a>:  <a href="https://wikidevi.com/wiki/MediaTek_MT7620">MediaTek</a> (Linux and WiFi), <a href="http://www.atmel.com/Images/Atmel-42181-SAM-D21_Datasheet.pdf">Atmel</a> μ-controller</td>
+					</tr>
+					<tr>
+						<th>Servo</th>
+						<td><a href="http://www.towerpro.com.tw/product/sg92r-7/">Tower Pro SG92</a></td>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h2>Software: JavaScript</h2>
+				<pre>
+					<code class="javascript" data-trim>
+// File: index.js
+// Run: t2 push index.js
+
+var tessel = require('tessel')
+var servoPin = tessel.port.A.pwm[0]
+var app = require('express')()
+var angle = 0
+...
+
+tessel.pwmFrequency(50)
+servoPin.pwmDutyCycle(1/20)
+
+app.get('/turn', function (req, res) {
+  angle += 30
+  servoPin.pwmDutyCycle(((angle)/180 + 1)/20) // move the servo
+  ...
+})
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2>Practical application: Robotics</h2>
+
+				<img src="img/openrov.png" alt="OpenROV running on Beaglebone" style="height:500px">
+				<p><a href="https://github.com/OpenROV/openrov-cockpit/blob/master/src/plugins/thrusters2x1/index.js">OpenROV plugin thrusters in node.js</a></p>
+			</section>
+
+			<section>
+				<h2>Explore</h2>
+				<ul class="examples">
+					<li><img src="img/1-bonescript.png" alt="Beaglebone Bonescript Github page"></li>
+					<li><img src="img/1-gpio.png" alt="GPIO node lib for Linux boards"></li>
+					<li><img src="img/1-wiringpi.png" alt="Tessel.io website"></li>
+				</ul>
+			</section>
+
+			<section class="center">
+				<ol class="js-topics">
+					<li>
+						<div class="num"> 2 </div>
+						<div class="hardware"></div>
+						<div class="connection dash"></div>
+						<div class="server-host"><img src="img/js.png" alt="JS Logo" class="js"></div>
+						<p class="middle">JavaScript tethered with firmata</p>
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<h1><strong style="background:#ffda01">Firmata</strong> is a protocol for communicating with <br>microcontrollers</h1>
+			</section>
+
+			<section>
+				<h2>Abstraction: Tethered app</h2>
+				<table class="table-talk">
+					<tr>
+						<td>app</td>
+						<td><a href="https://github.com/ajfisher/node-pixel">node-pixel</a></td>
+						<td>JS</td>
+						<td>laptop</td>
+					</tr>
+					<tr class="fragment">
+						<td></td>
+						<td><a href="https://github.com/jgautier/firmata">firmata.js</a></td>
+						<td>JS</td>
+						<td>laptop</td>
+					</tr>
+					<tr class="fragment">
+						<td></td>
+						<td><a href="https://github.com/voodootikigod/node-serialport">serial-port</a></td>
+						<td>JS & C++</td>
+						<td>laptop</td>
+					</tr>
+					<tr class="fragment">
+						<td></td>
+						<td><a href="https://www.arduino.cc/en/Reference/Firmata">firmata sketch</a></td>
+						<td>Arduino (C++)</td>
+						<td>arduino uno</td>
+					</tr>
+					<tr class="fragment">
+						<td></td>
+						<td><a href="https://www.arduino.cc/en/Reference/HomePage">arduino library</a></td>
+						<td>Arduino (C++)</td>
+						<td>arduino uno</td>
+					</tr>
+					<tr class="fragment">
+						<td>micro-controller</td>
+						<td><a href="http://www.atmel.com/devices/atmega328.aspx">ATmega328p</a></td>
+						<td>binary</td>
+						<td>arduino uno</td>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h2>Demo</h2>
+				<iframe src="http://localhost:8002" width="800px" height="160px"></iframe>
+				<video autoplay="" class="camera" id="camera3" style="display:block;margin:0 auto;height:500px;"></video>
+			</section>
+
+			<section>
+				<h2>Hardware: Neopixel & Arduino</h2>
+				<img src="img/2-hardware.png" alt="Neopixel with Arduino board" class="img-hardware">
+				<video autoplay="" class="camera-hardware" id="camera4"></video>
+
+				<table class="explain-hardware">
+					<tr>
+						<th>Neopixel</th>
+						<td><a href="https://cdn-shop.adafruit.com/datasheets/WS2812.pdf">WS2812</a> has control circuit and RGB chip integrated</td>
+					</tr>
+					<tr>
+						<th>Arduino</th>
+						<td>micro-controller</td>
+					</tr>
+					<tr>
+						<th>Host</th>
+						<td>our laptop</td>
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<h2>Software: JavaScript</h2>
+				<pre>
+					<code class="javascript" data-trim>
+var five = require('johnny-five')
+var pixel = require('node-pixel')
+var board = new five.Board({ port: 8000 })
+
+board.on('ready', function() {
+  ring = new pixel.Strip({
+    data: 6,
+    length: 60,
+    color_order: pixel.COLOR_ORDER.GRB,
+    board: this,
+    controller: 'FIRMATA',
+  })
+
+  ring.on('ready', function() {
+    app.get('/red', function(req, res) {
+      ring.color('#100')
+      ring.show()
+      res.redirect('/')
+    })
+...
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2>Examples of Firmata</h2>
+				<table class="table-talk">
+					<tr>
+						<th>JS lib</th>
+						<th>Firmata</th>
+						<th>Hardware</th>
+					</tr>
+					<tr>
+						<td><a href="https://github.com/ajfisher/node-pixel">node pixel</a></td>
+						<td><a href="https://github.com/ajfisher/node-pixel/blob/master/firmware/src/libs/ws2812/ws2812.cpp">node pixel</a></td>
+						<td><a href="https://www.adafruit.com/products/2874">Neopixel</a></td>
+					</tr>
+					<tr>
+						<td><a href="http://johnny-five.io/">johnny-five</a></td>
+						<td><a href="https://github.com/firmata/arduino/blob/master/examples/StandardFirmataPlus/StandardFirmataPlus.ino">StandardFirmataPlus</a></td>
+						<td><a href="http://johnny-five.io/examples/">plenty</a>!</td>
+					</tr>
+					<tr>
+						<td><a href="http://johnny-five.io/">johnny-five</a></td>
+						<td><a href="https://gist.githubusercontent.com/rwaldron/0519fcd5c48bfe43b827/raw/f17fb09b92ed04722953823d9416649ff380c35b/PingFirmata.ino">PingFirmata</a></td>
+						<td>hc-sr04 proximity</td>
+					</tr>
+					<tr>
+						<td><a href="https://docs.particle.io/reference/javascript/">particle-io</a></td>
+						<td><a href="https://raw.githubusercontent.com/voodootikigod/voodoospark/master/firmware/voodoospark.cpp">voodootiki</a></td>
+						<td><a href="https://store.particle.io/collections/photon">particle photon</a></td>
+					</tr>
+				</table>
+
+				<br>
+				<p>Use <a href="https://github.com/johnny-five-io/nodebots-interchange">nodebots-interchange</a> to flash <br> custom firmata in your boards!</p>
+			</section>
+
+			<section>
+				<h2>Explore</h2>
+				<ul class="examples">
+					<li><img src="img/2-cylonjs.png" alt="Beaglebone Bonescript Github page"></li>
+					<li><img src="img/2-johnny-five.png" alt="GPIO node lib for Linux boards"></li>
+					<li><img src="img/2-nodebots.png" alt="Tessel.io website"></li>
+				</ul>
+			</section>
+
+			<section class="center">
+				<ol class="js-topics">
+					<li>
+						<div class="num"> 3 </div>
+						<div class="hardware"></div>
+						<div class="wifi"><img src="img/wifi.gif" alt="WiFi animated logo"></div>
+						<div class="gateway"></div>
+						<div class="server"><img src="img/js.png" alt="JS Logo" class="js"></div>
+						<p class="middle">Hardware talking to the JavaScript server:<br>IoT Platform</p>
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>Wireless Technologies</h2>
+
+				<table class="table-talk">
+					<tr>
+						<th>Wireless</th>
+						<th>Gateway</th>
+						<th>Range</th>
+						<th>Power</th>
+						<th>Data rate</th>
+					</tr>
+					<tr style="background:#ffda01">
+						<th>BLE</th>
+						<td>Laptop</td>
+						<td>medium</td>
+						<td>low</td>
+						<td>low</td>
+					</tr>
+					<tr>
+						<th>WiFi</th>
+						<td>Router</td>
+						<td>medium</td>
+						<td>high</td>
+						<td>high</td>
+					</tr>
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td>
+					</tr>
+					<tr>
+						<th>4G</th>
+						<td>Cell Tower</td>
+						<td>wide</td>
+						<td>high</td>
+						<td>high</td>
+					</tr>
+					<tr style="background:#ffda01">
+						<th>LoRaWAN</th>
+						<td>Receivers</td>
+						<td>wide</td>
+						<td>low</td>
+						<td>low</td>
+					</tr>
+					<tr style="background:#ffda01">
+						<th>NB IoT</th>
+						<td>Cell towers</td>
+						<td>wide</td>
+						<td>low</td>
+						<td>low</td>
+					</tr>
+				</table>
+
+				<p>Low cost, low powered sensors running for years</p>
+			</section>
+
+			<section>
+				<h1><strong style="background:#ffda01">IoT platforms</strong> talk to devices via the Internet protocol through gateways</h1>
+			</section>
+
+			<section>
+				<h2>Demo</h2>
+				<iframe src="http://localhost:8003" width="800px" height="500px"></iframe>
+				<p class="fragment" data-fragment-index="1">IoT platform: get sensor data, visualise data, interpret data</p>
+			</section>
+
+			<section>
+				<h2>Hardware: TI Sensor Tag</h2>
+
+				<video autoplay="" class="camera-hardware" id="camera5"></video>
+				<img src="img/ti-sensortag.png" alt="Neopixel with Arduino board" class="img-hardware" style="height:200px;width:270px;float:right;margin-right:30px">
+
+				<table class="explain-hardware">
+					<tr>
+						<th>TI Sensor tag</th>
+						<td>Low powered BLE platform with sensors</td>
+					</tr>
+					<tr>
+						<th>Server</th>
+						<td>laptop or mobile with BLE capabilities</td>
+					</tr>
+				</table>
+
+
+			</section>
+
+			<section>
+				<h2>Software: Node.js</h2>
+				<pre>
+						<code class="javascript" data-trim>
+var SensorTag = require('sensortag')
+var app = require('express')()
+var async = require('async')
+var WebSocketServer = require('ws').Server
+...
+SensorTag.discover(function(sensorTag) {
+   async.series([
+      function(callback) {
+        console.log('Connected to Sensor Tag')
+        sensorTag.connectAndSetUp(callback)
+      },
+
+      function(callback) { sensorTag.enableIrTemperature(callback); },
+      function(callback) { setTimeout(callback, 2000); },
+      function(callback) {
+        sensorTag.readIrTemperature(function(error, objectTemperature, ambientTemperature) {
+          console.log('Temperature = %d °C', ambientTemperature.toFixed(1))
+          callback();
+        });
+...
+						</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2>Explore: IoT Platform</h2>
+
+				<ul class="examples">
+					<li><img src="img/3-thingspeak.png" alt="Thingspeak website"></li>
+					<li><img src="img/3-aws.png" alt="AWS IoT website"></li>
+					<li><img src="img/3-google.png" alt="Google Iot platform"></li>
+				</ul>
+			</section>
+
+			<section class="center">
+				<ol class="js-topics">
+					<li>
+						<div class="num"> 1 </div>
+						<div class="host"><img src="img/js.png" alt="JS Logo" class="js"></div>
+						<p class="fragment" data-fragment-index="1" style=margin:0;font-size:.8em;>running on <span class="emphasis">single-board computers</span> or <span class="emphasis">micro-controllers</span></p>
+					</li>
+					<li>
+						<div class="num"> 2 </div>
+						<div class="hardware"></div>
+						<div class="connection dash"></div>
+						<div class="server-host"><img src="img/js.png" alt="JS Logo" class="js"></div>
+						<p class="fragment" data-fragment-index="2" style=margin:0;font-size:.8em;>communicating over <span class="emphasis">firmata</span> with boards and hardware</p>
+					</li>
+					<li>
+						<div class="num"> 3 </div>
+						<div class="hardware"></div>
+						<div class="wifi"><img src="img/wifi.gif" alt="WiFi animated logo"></div>
+						<div class="gateway"></div>
+						<div class="server"><img src="img/js.png" alt="JS Logo" class="js"></div>
+						<p class="fragment" data-fragment-index="3" style=margin:0;font-size:.8em;>talking to <span class="emphasis">wireless sensors</span> via the Internet through gateways</p>
+					</li>
+				</ol>
+			</section>
+
+			<section>
+				<img src="img/cheshire.png" alt="Alice talking to the Cheshire cat" style="height:700px;float:left;text-align:left;">
+				<br>
+				<p class="quote">One day Alice came to a fork in the road and saw a <span class="emphasis">Cheshire cat</span> in the tree.</p>
+				<p class="quote fragment" data-fragment-index="1">"Which road should I take?" she asked.</p>
+				<p class="quote fragment" data-fragment-index="2">"Where do you want to go?" was his response.</p>
+				<p class="quote fragment" data-fragment-index="3">"I don't know" Alice answered.</p>
+				<p class="quote">
+					<span class="fragment" data-fragment-index="4">"Then", said the cat, </span>
+					<br>
+					<span class="emphasis fragment" data-fragment-index="5">"it doesn't matter"</span>
+				</p>
+			</section>
+
+			<section class="center">
+				<h1>Have a <br><span class="emphasis">fun adventure</span> with JavaScript and Hardware!</h1>
+			</section>
+
+			<section>
+				<h2>References & Credits 📚</h2>
+				<ol>
+					<li><a href="http://start.tessel.io/modules/servo">Tessel 2 servo example</a></li>
+					<li><a href="https://digitalstrategy.nl/files/Internet-of-Things-vs-Internet-of-everything-by-ABI-June-2014.pdf">Digital-first vs Physical-first</a></li>
+					<li><a href="https://learn.adafruit.com/adafruit-neopixel-uberguide">Adafruit Neopixel Uberguide</a></li>
+					<li><a href="https://e2e.ti.com/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-08-84/sensorTag_2D00_teardown_2D00_bluetooth_2D00_03.png">TI Sensor Tag hardware</a></li>
+				</ol>
+			</section>
+
+			<section class="center">
+				<h1>Danke!</h1>
+				<p>Slides: <br><a href="https://talks.sayan.ee/alice">talks.sayanee/alice</a></p>
+			</section>
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
