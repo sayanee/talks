@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="style.css">
+
+<div class="wrapper">
+  <button id="turn">Turn the knob</button>
+  <button id="reset">Reset the knob</button>
+
+  <h2>Who turned it?</h2>
+  <ul id="list"></ul>
+</div>
+
+<script>
+  var socket = new WebSocket('ws://192.168.1.101')
+  var ul = document.getElementById('list')
+
+  socket.onmessage = function(data, flags) {
+    console.log('Name: ' + data.data)
+
+    var li = document.createElement('li')
+    li.appendChild(document.createTextNode(data.data));
+    ul.appendChild(li);
+  }
+
+  document.getElementById('turn').addEventListener('click', function() {
+    console.log('turn')
+    socket.send('turn')
+  })
+
+  document.getElementById('reset').addEventListener('click', function() {
+    console.log('reset')
+    socket.send('reset')
+  })
+</script>

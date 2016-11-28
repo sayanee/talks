@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<div class="container">
+  <form action="/vote" method="post">
+    <input type="text" name="name" placeholder="nick name" id="name" required>
+    <input type="submit" value="Turn the knob" id="vote">
+  </form>
+  <p id="thanks">You have turned the knob :)</p>
+</div>
+
+<script>
+  var socket = new WebSocket("ws://192.168.1.101")
+
+  document.getElementById('vote').addEventListener('click', function() {
+    var name = document.getElementById('name').value
+
+    if (name) {
+      localStorage.setItem('name', name)
+      socket.send(name)
+    }
+  })
+
+  if (typeof localStorage !== 'undefined') {
+    if (localStorage.getItem('name')) {
+      document.getElementById('name').remove()
+      document.getElementById('vote').remove()
+      document.getElementById('thanks').style.display = 'block'
+    }
+  }
+</script>

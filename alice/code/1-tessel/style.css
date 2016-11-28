@@ -1,0 +1,67 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Georgia;
+}
+
+.container, .wrapper {
+  width: 600px;
+  display: block;
+  margin: 0 auto;
+  font-family: Georgia;
+}
+
+.container {
+  padding: 2em 0 0 0;
+}
+
+.wrapper {
+  padding: 0;
+}
+
+input, button {
+  border: none;
+  border-bottom: 5px solid #000;
+  display: block;
+  margin: 0 auto 1em;
+  width: 100%;
+  font-size: 1.6em;
+  padding: .5em;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+input[type=submit], button {
+  border: 5px solid #000;
+  border-radius: 10px;
+}
+
+input[type=submit]:hover, button:hover {
+  background: #ffda01;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+p {
+  font-size: 2em;
+  color: #4F6FE4;
+  display: none;
+}
+
+li {
+  font-size: 2em;
+}
+
+a:hover{
+  color: #eee;
+  background: #4F6FE4;
+}
+
+@media (max-width: 600px) {
+  .container, .wrapper {
+    width: 95%;
+  }
+}

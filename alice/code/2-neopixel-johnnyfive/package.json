@@ -1,0 +1,23 @@
+{
+  "name": "neopixel-johnnyfive",
+  "version": "1.0.0",
+  "description": "neopixel with johnny five",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "johnny-five": "^0.10.1",
+    "node-pixel": "^0.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "neopixel",
+    "colors",
+    "patterns"
+  ],
+  "author": "",
+  "license": "MIT"
+}

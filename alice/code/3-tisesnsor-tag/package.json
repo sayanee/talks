@@ -1,0 +1,15 @@
+{
+  "name": "3-tisesnsor-tag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.1.2",
+    "sensortag": "^1.2.3"
+  }
+}
