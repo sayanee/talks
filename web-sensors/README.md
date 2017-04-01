@@ -5,8 +5,8 @@
 ## Quick start
 
 1. Install dependancies `npm i`
-- Start the presentation slides in browser `npm start`
-- Go through the sample code in directory `code`
+1. Start the presentation slides in browser `npm start`
+1. Go through the sample code in directory `code`
 
 ## Camera view
 
