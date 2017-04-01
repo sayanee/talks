@@ -1,5 +1,6 @@
 // code: http://johnny-five.io/examples/switch-tilt-SW_200D/
-// hardware wiring: longer pin to the 5V and shorter pin to GND via a resistor
+// hardware wiring: http://johnny-five.io/examples/switch-tilt-SW_200D/
+// longer pin to the 5V and shorter pin to GND via a resistor
 
 var five = require('johnny-five')
 var board = new five.Board()
