@@ -10,12 +10,12 @@ var five = require('johnny-five')
 five.Board().on('ready', function() {
   var led = new five.Led.RGB({
     pins: {
-      red: 6, // digital pin ~3
+      red: 6, // digital pin ~6
       green: 5, // digital pin ~5
-      blue: 3 // digital pin ~6
+      blue: 3 // digital pin ~3
     }
-    // RGB pin layouts might not be the same as above (red: 3, green: 5, blue: 6)
-    // try out and change the above pin numbers accordingly
+    // RGB pin layouts might not be the same as above
+    // If Line 26 color is not the same as what you see, then exchange the wires
   })
 
   this.repl.inject({
